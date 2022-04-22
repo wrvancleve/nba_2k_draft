@@ -1,0 +1,40 @@
+.player-card {
+  border: 1px solid #a5b4fc;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  height: auto;
+  width: 15vw;
+  max-width: 315px;
+  padding: 2px 16px;
+  background: rgba(165,180,252,.16);
+}
+
+.player-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.player-card-selected {
+  background: #a5b4fc;
+  border: 1px solid #444c56;
+}
+
+.player-card-selected span.info {
+  color: #1c2127;
+}
+
+.player-card-disabled {
+  background: #1c2127;
+}
+
+.info {
+  color: #b1b5b9;
+  margin-right: 6px;
+}
+
+span {
+  color: hsla(0,0%,100%,.87);
+}
+
+span + span.info {
+  margin-left: 12px;
+}
