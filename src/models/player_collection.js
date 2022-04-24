@@ -636,7 +636,6 @@ PlayerCollection.prototype.populate = function() {
     this.add("Rashard", "Lewis", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 86, "Orlando Magic All-Time");
     this.add("Rashard", "Lewis", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 89, "Oklahoma City Thunder All-Time");
     this.add("Rasheed", "Wallace", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 86, "Detroit Pistons '03-'04");
-    this.add("Rasheed", "Wallace", [Player.POSITION_POWER_FORWARD], 80, "Portland Trail Blazers '99-'00");
     this.add("Ray", "Allen", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 88, "Boston Celtics All-Time");
     this.add("Ray", "Allen", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 91, "Milwaukee Bucks All-Time");
     this.add("Ray", "Allen", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 95, "Oklahoma City Thunder All-Time");
