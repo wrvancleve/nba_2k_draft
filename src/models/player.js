@@ -1,12 +1,13 @@
-import { v4 as uuidv4 } from 'uuid'
+import hash from 'object-hash';
 
-function Player(firstName, lastName, positions, overall, team) {
+function Player(firstName, lastName, positions, overall, team, usageCount) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.positions = positions;
     this.team = team;
     this.overall = overall;
-    this.id = uuidv4();
+    this.id = hash({firstName: firstName, lastName: lastName, team: team, overall: overall});
+    this.usageCount = localStorage.getItem("nba_draft." + this.id) || usageCount || 0;
 }
 
 Player.prototype.isSamePlayer = function(player) {

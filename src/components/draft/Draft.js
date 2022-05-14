@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import DraftBoard from './DraftBoard'
 import SavedDraftList from './SavedDraftList';
 
-import PlayerCollection from '../../models/player_collection'
+import PlayerCollection from '../../models/player_collection';
 
 const FlexColumnDiv = styled.div`
     padding: 5px;
