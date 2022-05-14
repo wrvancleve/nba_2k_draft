@@ -478,10 +478,11 @@ PlayerCollection.prototype.populate = function() {
     this.add("Kenyon", "Martin", [Player.POSITION_POWER_FORWARD], 83, "New Jersey Nets '01-'02");
     this.add("Kenyon", "Martin", [Player.POSITION_POWER_FORWARD], 87, "Brooklyn Nets All-Time");
     this.add("Kerry", "Kittles", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 82, "New Jersey Nets '01-'02");
-    this.add("Kevin", "Duckworth", [Player.POSITION_CENTER], 95, "Portland Trail Blazers All-Time");
+    this.add("Kevin", "Duckworth", [Player.POSITION_CENTER], 85, "Portland Trail Blazers All-Time");
     this.add("Kevin", "Durant", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 96, "Brooklyn Nets All-Time");
     this.add("Kevin", "Durant", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 97, "Golden State Warriors All-Time");
     this.add("Kevin", "Durant", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 97, "Oklahoma City Thunder All-Time");
+    this.add("Kevin", "Durant", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 99, "Free Agency");
     this.add("Kevin", "Garnett", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 83, "Free Agency");
     this.add("Kevin", "Garnett", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 92, "Boston Celtics All-Time");
     this.add("Kevin", "Garnett", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 98, "Minnesota Timberwolves All-Time");
@@ -527,6 +528,7 @@ PlayerCollection.prototype.populate = function() {
     this.add("Lebron", "James", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 99, "Cleveland Cavaliers All-Time");
     this.add("Lebron", "James", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 99, "Miami Heat All-Time");
     this.add("Lebron", "James", [Player.POSITION_SMALL_FORWARD], 84, "Free Agency");
+    this.add("Lebron", "James", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 99, "Free Agency");
     this.add("Lionel", "Hollins", [Player.POSITION_POINT_GUARD, Player.POSITION_SHOOTING_GUARD], 84, "Free Agency");
     this.add("Lonzo", "Ball", [Player.POSITION_POINT_GUARD, Player.POSITION_SHOOTING_GUARD], 82, "New Orleans Pelicans All-Time");
     this.add("Lou", "Hudson", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 86, "Free Agency");
@@ -584,7 +586,6 @@ PlayerCollection.prototype.populate = function() {
     this.add("Moses", "Malone", [Player.POSITION_CENTER], 89, "Washington Wizards All-Time");
     this.add("Moses", "Malone", [Player.POSITION_CENTER], 94, "Free Agency");
     this.add("Moses", "Malone", [Player.POSITION_CENTER], 97, "Houston Rockets All-Time");
-    this.add("Moses", "Malone", [Player.POSITION_CENTER], 97, "Philadelphia 76ers All-Time");
     this.add("Muggsy", "Bogues", [Player.POSITION_POINT_GUARD], 81, "Charlotte Hornets '92-'93");
     this.add("Muggsy", "Bogues", [Player.POSITION_POINT_GUARD], 86, "Charlotte Hornets All-Time");
     this.add("Nate", "Archibald", [Player.POSITION_POINT_GUARD], 95, "Sacramento Kings All-Time");
@@ -734,7 +735,7 @@ PlayerCollection.prototype.populate = function() {
     this.add("Tom", "Heinsohn", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 81, "Boston Celtics '64-'65");
     this.add("Tom", "Heinsohn", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 89, "Boston Celtics All-Time");
     this.add("Tom", "Sanders", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 85, "Boston Celtics '64-'65");
-    this.add("Toni", "Kukoc", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 83, "Free Agency");
+    this.add("Toni", "Kukoc", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 83, "Chicago Bulls '95-'96");
     this.add("Toni", "Kukoc", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 85, "Chicago Bulls All-Time");
     this.add("Tony", "Allen", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 85, "Memphis Grizzlies All-Time");
     this.add("Tony", "Parker", [Player.POSITION_POINT_GUARD], 86, "San Antonio Spurs '13-'14");
