@@ -524,11 +524,11 @@ PlayerCollection.prototype.populate = function() {
     this.add("Larry", "Nance", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 85, "Cleveland Cavaliers '89-'90");
     this.add("Larry", "Nance", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 88, "Cleveland Cavaliers All-Time");
     this.add("Latrell", "Sprewell", [Player.POSITION_SMALL_FORWARD], 84, "New York Knicks '98-'99");
-    this.add("Lebron", "James", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 96, "Los Angeles Lakers All-Time");
-    this.add("Lebron", "James", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 99, "Cleveland Cavaliers All-Time");
-    this.add("Lebron", "James", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 99, "Miami Heat All-Time");
-    this.add("Lebron", "James", [Player.POSITION_SMALL_FORWARD], 84, "Free Agency");
-    this.add("Lebron", "James", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 99, "Free Agency");
+    this.add("LeBron", "James", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 96, "Los Angeles Lakers All-Time");
+    this.add("LeBron", "James", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 99, "Cleveland Cavaliers All-Time");
+    this.add("LeBron", "James", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 99, "Miami Heat All-Time");
+    this.add("LeBron", "James", [Player.POSITION_SMALL_FORWARD], 84, "Free Agency");
+    this.add("LeBron", "James", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 99, "Free Agency");
     this.add("Lionel", "Hollins", [Player.POSITION_POINT_GUARD, Player.POSITION_SHOOTING_GUARD], 84, "Free Agency");
     this.add("Lonzo", "Ball", [Player.POSITION_POINT_GUARD, Player.POSITION_SHOOTING_GUARD], 82, "New Orleans Pelicans All-Time");
     this.add("Lou", "Hudson", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 86, "Free Agency");
