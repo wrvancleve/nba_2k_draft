@@ -100,6 +100,7 @@ PlayerCollection.prototype.populate = function() {
     this.add("Andrea", "Bargnani", [Player.POSITION_CENTER, Player.POSITION_POWER_FORWARD], 84, "Toronto Raptors All-Time");
     this.add("Andrei", "Kirilenko", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 89, "Utah Jazz All-Time", 1);
     this.add("Andrew", "Bogut", [Player.POSITION_CENTER], 81, "Free Agency", 1);
+    this.add("Andrew", "Bogut", [Player.POSITION_CENTER], 86, "Free Agency");
     this.add("Andrew", "Bynum", [Player.POSITION_CENTER], 82, "Free Agency");
     this.add("Andrew", "Toney", [Player.POSITION_SHOOTING_GUARD], 85, "Free Agency");
     this.add("Andrew", "Wiggins", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 84, "Minnesota Timberwolves All-Time", 1);
@@ -122,6 +123,7 @@ PlayerCollection.prototype.populate = function() {
     this.add("Bam", "Adebayo", [Player.POSITION_CENTER, Player.POSITION_POWER_FORWARD], 86, "Miami Heat All-Time");
     this.add("Baron", "Davis", [Player.POSITION_POINT_GUARD], 85, "Charlotte Hornets All-Time");
     this.add("Baron", "Davis", [Player.POSITION_POINT_GUARD], 92, "New Orleans Pelicans All-Time");
+    this.add("Ben", "Gordon", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 85, "Free Agency");
     this.add("Ben", "Simmons", [Player.POSITION_POINT_GUARD, Player.POSITION_POWER_FORWARD], 88, "Philadelphia 76ers All-Time", 1);
     this.add("Ben", "Wallace", [Player.POSITION_POWER_FORWARD], 89, "Detroit Pistons All-Time");
     this.add("Bernard", "King", [Player.POSITION_SMALL_FORWARD], 87, "Washington Wizards All-Time", 1);
@@ -271,6 +273,7 @@ PlayerCollection.prototype.populate = function() {
     this.add("Dikembe", "Mutombo", [Player.POSITION_CENTER], 86, "Free Agency", 1);
     this.add("Dikembe", "Mutombo", [Player.POSITION_CENTER], 90, "Denver Nuggets All-Time", 1);
     this.add("Dikembe", "Mutombo", [Player.POSITION_CENTER], 92, "Atlanta Hawks All-Time", 1);
+    this.add("Dion", "Waiters", [Player.POSITION_SHOOTING_GUARD], 82, "Free Agency");
     this.add("Dirk", "Nowitzki", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 91, "Dallas Mavericks '02-'03");
     this.add("Dirk", "Nowitzki", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 95, "Dallas Mavericks '10-'11");
     this.add("Dirk", "Nowitzki", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 98, "Dallas Mavericks All-Time", 1);
@@ -304,6 +307,7 @@ PlayerCollection.prototype.populate = function() {
     this.add("Elton", "Brand", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 90, "Los Angeles Clippers All-Time");
     this.add("Elvin", "Hayes", [Player.POSITION_POWER_FORWARD], 89, "Houston Rockets All-Time");
     this.add("Elvin", "Hayes", [Player.POSITION_POWER_FORWARD], 94, "Washington Wizards All-Time");
+    this.add("Emeka", "Okafor", [Player.POSITION_CENTER], 82, "Free Agency");
     this.add("Eric", "Gordon", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 81, "New Orleans Pelicans All-Time");
     this.add("Eric", "Snow", [Player.POSITION_POINT_GUARD], 80, "Philadelphia 76ers '00-'01");
     this.add("Evan", "Mobley", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 83, "Cleveland Cavaliers", 1);
@@ -366,6 +370,7 @@ PlayerCollection.prototype.populate = function() {
     this.add("Jamaal", "Wilkes", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 81, "Free Agency");
     this.add("Jamaal", "Wilkes", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 87, "Los Angeles Lakers All-Time");
     this.add("Jamal", "Crawford", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 81, "Los Angeles Clippers '13-'14");
+    this.add("Jamal", "Crawford", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 85, "Free Agency");
     this.add("Jamal", "Mashburn", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 88, "Dallas Mavericks All-Time");
     this.add("Jamal", "Mashburn", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 89, "New Orleans Pelicans All-Time");
     this.add("Jamal", "Murray", [Player.POSITION_POINT_GUARD, Player.POSITION_SHOOTING_GUARD], 85, "Denver Nuggets All-Time");
@@ -521,6 +526,7 @@ PlayerCollection.prototype.populate = function() {
     this.add("Louie", "Dampier", [Player.POSITION_POINT_GUARD], 89, "San Antonio Spurs All-Time", 1);
     this.add("Luka", "Doncic", [Player.POSITION_POINT_GUARD, Player.POSITION_SHOOTING_GUARD], 94, "Dallas Mavericks All-Time");
     this.add("Luol", "Deng", [Player.POSITION_SMALL_FORWARD], 84, "Chicago Bulls '10-'11");
+    this.add("Luol", "Deng", [Player.POSITION_SMALL_FORWARD], 87, "Free Agency");
     this.add("Magic", "Johnson", [Player.POSITION_POINT_GUARD, Player.POSITION_SHOOTING_GUARD], 92, "Los Angeles Lakers '90-'91");
     this.add("Magic", "Johnson", [Player.POSITION_POINT_GUARD, Player.POSITION_SHOOTING_GUARD], 99, "Los Angeles Lakers All-Time", 1);
     this.add("Mahmoud", "Abdul-Rauf", [Player.POSITION_POINT_GUARD], 84, "Denver Nuggets '93-'94", 1);
@@ -574,6 +580,7 @@ PlayerCollection.prototype.populate = function() {
     this.add("Muggsy", "Bogues", [Player.POSITION_POINT_GUARD], 81, "Charlotte Hornets '92-'93");
     this.add("Muggsy", "Bogues", [Player.POSITION_POINT_GUARD], 86, "Charlotte Hornets All-Time");
     this.add("Nate", "Archibald", [Player.POSITION_POINT_GUARD], 95, "Sacramento Kings All-Time", 1);
+    this.add("Nate", "Robinson", [Player.POSITION_POINT_GUARD], 81, "Free Agency");
     this.add("Nate", "Thurmond", [Player.POSITION_CENTER], 92, "Golden State Warriors All-Time");
     this.add("Nick", "Anderson", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 83, "Orlando Magic '94-'95");
     this.add("Nick", "Anderson", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 85, "Orlando Magic All-Time");
@@ -626,6 +633,7 @@ PlayerCollection.prototype.populate = function() {
     this.add("Ray", "Allen", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 91, "Milwaukee Bucks All-Time", 1);
     this.add("Ray", "Allen", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 95, "Oklahoma City Thunder All-Time", 1);
     this.add("Ray", "Allen", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 96, "Free Agency");
+    this.add("Raymond", "Felton", [Player.POSITION_POINT_GUARD], 85, "Free Agency");
     this.add("Reggie", "Lewis", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 87, "Free Agency");
     this.add("Reggie", "Miller", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 93, "Free Agency");
     this.add("Reggie", "Miller", [Player.POSITION_SHOOTING_GUARD], 88, "Free Agency", 1);
@@ -644,6 +652,7 @@ PlayerCollection.prototype.populate = function() {
     this.add("Rolando", "Blackman", [Player.POSITION_SHOOTING_GUARD], 85, "Free Agency");
     this.add("Rolando", "Blackman", [Player.POSITION_SHOOTING_GUARD], 88, "Dallas Mavericks All-Time");
     this.add("Ron", "Artest", [Player.POSITION_SMALL_FORWARD], 81, "Free Agency");
+    this.add("Ron", "Artest", [Player.POSITION_SMALL_FORWARD], 92, "Free Agency");
     this.add("Ron", "Harper", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 80, "Free Agency");
     this.add("Ron", "Harper", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 89, "Los Angeles Clippers All-Time");
     this.add("Rony", "Seikaly", [Player.POSITION_CENTER], 82, "Free Agency");
