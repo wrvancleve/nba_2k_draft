@@ -7,7 +7,7 @@ function Player(firstName, lastName, positions, overall, team, usageCount) {
     this.team = team;
     this.overall = overall;
     this.id = hash({firstName: firstName, lastName: lastName, team: team, overall: overall});
-    this.usageCount = localStorage.getItem("nba_draft." + this.id) || usageCount || 0;
+    this.usageCount = Number(localStorage.getItem("nba_draft." + this.id) || usageCount || 0);
 }
 
 Player.prototype.isSamePlayer = function(player) {

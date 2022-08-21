@@ -3,6 +3,11 @@ import {choice} from '../utils/random';
 
 function PlayerCollection() {
     this.reset();
+    this.randomWeightValue = 1;
+}
+
+PlayerCollection.prototype.setRandomWeightValue = function(randomWeightValue) {
+    this.randomWeightValue = randomWeightValue;
 }
 
 PlayerCollection.prototype.clear = function() {
@@ -834,7 +839,7 @@ PlayerCollection.prototype.getRandomPlayer = function(positions, overalls, exclu
     usageCountGroups.sort(function(a, b) {
         return a - b;
     })
-    const selectedUsageGroup = Math.floor(usageCountGroups.length * Math.pow(Math.random(), 5));
+    const selectedUsageGroup = usageCountGroups[Math.floor(usageCountGroups.length * Math.pow(Math.random(), this.randomWeightValue))];
     return choice(possiblePlayersByUsageCount.get(selectedUsageGroup));
 }
 

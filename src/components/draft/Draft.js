@@ -34,6 +34,9 @@ export default function Draft() {
 
     const overallSets = location.state.overallSets;
     const positionSets = location.state.positionSets;
+    const randomWeightValue = location.state.randomWeightValue;
+
+    playerCollection.setRandomWeightValue(randomWeightValue);
 
     const [playerGroups, setPlayerGroups] = useState([]);
 

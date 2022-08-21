@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'
 
 const POSITION_GROUPS_LOCAL_STORAGE_KEY = "nba_draft.positionGroups"
 const OVERALL_GROUPS_LOCAL_STORAGE_KEY = "nba_draft.overallGroups"
+const RANDOM_WEIGHT_LOCAL_STORAGE_KEY = "nba_draft.randomWeight"
 
 const StyledDiv = styled.div`
     padding: 5px;
@@ -20,6 +21,9 @@ export default function Setup() {
 
     const [positionGroups, setPositionGroups] = useState([])
     const [overallGroups, setOverallGroups] = useState([])
+    const [randomWeightValue, setRandomWeightValue] = useState(1);
+
+    const randomWeightRef = useRef();
 
     useEffect(() => {
         const storedPositionGroups = JSON.parse(localStorage.getItem(POSITION_GROUPS_LOCAL_STORAGE_KEY))
@@ -30,12 +34,15 @@ export default function Setup() {
         if (storedOverallGroups) {
             setOverallGroups(storedOverallGroups);
         }
+        const storedRandomWeightValue = JSON.parse(localStorage.getItem(RANDOM_WEIGHT_LOCAL_STORAGE_KEY)) || 1;
+        setRandomWeightValue(storedRandomWeightValue);
     }, [])
 
     useEffect(() => {
         localStorage.setItem(POSITION_GROUPS_LOCAL_STORAGE_KEY, JSON.stringify(positionGroups))
         localStorage.setItem(OVERALL_GROUPS_LOCAL_STORAGE_KEY, JSON.stringify(overallGroups))
-    }, [positionGroups, overallGroups]);
+        localStorage.setItem(RANDOM_WEIGHT_LOCAL_STORAGE_KEY, JSON.stringify(randomWeightValue))
+    }, [positionGroups, overallGroups, randomWeightValue]);
 
     function createNewPositionGroup() {
         const positionPointGuard = {id: uuidv4(), name: "PG", selected: false};
@@ -118,7 +125,11 @@ export default function Setup() {
             positionSets.push(positionSet);
         });
         
-        navigate("/draft", { state: { overallSets: overallSets, positionSets: positionSets } });
+        navigate("/draft", { state: { overallSets: overallSets, positionSets: positionSets, randomWeightValue: randomWeightValue } });
+    }
+
+    function handleRandomWeightChange(event) {
+        setRandomWeightValue(Number(randomWeightRef.current.value));
     }
 
     return (
@@ -144,6 +155,10 @@ export default function Setup() {
                         <OverallGroupList overalls={overallGroups} setOverallValue={setOverallValue} />
                     </fieldset>
                 </StyledDiv>
+            </StyledDiv>
+            <StyledDiv>
+                <label for={"random-weight-value"}>Random Weight Value:</label>
+                <input ref={randomWeightRef} onChange={handleRandomWeightChange} type="number" id={"random-weight-value"} min="1" max="50" value={randomWeightValue}/>
             </StyledDiv>
             <button onClick={handleStartDraftClick}>Start Draft</button>
         </div>
