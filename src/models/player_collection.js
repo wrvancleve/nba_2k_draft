@@ -687,6 +687,7 @@ PlayerCollection.prototype.populateAllTime = function() {
 }
 
 PlayerCollection.prototype.populateExtended = function() {
+    /*
     this.add("Al", "Horford", [Player.POSITION_CENTER, Player.POSITION_POWER_FORWARD], 87, "Free Agency");
     this.add("Andre", "Iguodala", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 94, "Free Agency");
     this.add("Andrei", "Kirilenko", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 93, "Free Agency");
@@ -871,6 +872,7 @@ PlayerCollection.prototype.populateExtended = function() {
         this.add("Yao", "Ming", [Player.POSITION_CENTER], 86, "Free Agency");
     }
     this.add("Zion", "Williamson", [Player.POSITION_POWER_FORWARD], 95, "Free Agency");
+    */
 }
 
 PlayerCollection.prototype.populateClassic = function() {
