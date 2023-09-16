@@ -4,8 +4,20 @@ import OverallGroupList from './OverallGroupList'
 import { v4 as uuidv4 } from 'uuid'
 import styled from 'styled-components'
 
+import ButtonSelectionGroup from '../ButtonSelectionGroup'
+
+const ButtonSelectionDiv = styled.div`
+    padding: 5px;
+`
+
+const ButtonSelectionLabel = styled.label`
+    padding-right: 12px;
+    padding-left: 12px;
+`
+
 const POSITION_GROUPS_LOCAL_STORAGE_KEY = "nba_draft.positionGroups"
 const OVERALL_GROUPS_LOCAL_STORAGE_KEY = "nba_draft.overallGroups"
+const PLAYER_VERSIONS_LOCAL_STORAGE_KEY = "nba_draft.playerVersions"
 const RANDOM_WEIGHT_LOCAL_STORAGE_KEY = "nba_draft.randomWeight"
 
 const StyledDiv = styled.div`
@@ -18,9 +30,12 @@ export default function Setup({startDraft}) {
     const [isInitialLoad, setIsInitialLoad] = useState(true);
     const [positionGroups, setPositionGroups] = useState([])
     const [overallGroups, setOverallGroups] = useState([])
+    const [selectedPlayerVersionIndex, setSelectedPlayerVersionIndex] = useState(1);
     const [randomWeightValue, setRandomWeightValue] = useState(1);
 
     const randomWeightRef = useRef();
+
+    const possiblePlayerVersions = ["All", "Best"];
 
     useEffect(() => {
         const storedPositionGroups = JSON.parse(localStorage.getItem(POSITION_GROUPS_LOCAL_STORAGE_KEY))
@@ -31,6 +46,10 @@ export default function Setup({startDraft}) {
         if (storedOverallGroups) {
             setOverallGroups(storedOverallGroups);
         }
+        const storedPlayerVersions = JSON.parse(localStorage.getItem(PLAYER_VERSIONS_LOCAL_STORAGE_KEY));
+        if (storedPlayerVersions) {
+            setSelectedPlayerVersionIndex(possiblePlayerVersions.indexOf(storedPlayerVersions));
+        }
         const storedRandomWeightValue = JSON.parse(localStorage.getItem(RANDOM_WEIGHT_LOCAL_STORAGE_KEY)) || 1;
         setRandomWeightValue(storedRandomWeightValue);
         setIsInitialLoad(false);
@@ -40,9 +59,10 @@ export default function Setup({startDraft}) {
         if (!isInitialLoad) {
             localStorage.setItem(POSITION_GROUPS_LOCAL_STORAGE_KEY, JSON.stringify(positionGroups))
             localStorage.setItem(OVERALL_GROUPS_LOCAL_STORAGE_KEY, JSON.stringify(overallGroups))
+            localStorage.setItem(PLAYER_VERSIONS_LOCAL_STORAGE_KEY, JSON.stringify(possiblePlayerVersions[selectedPlayerVersionIndex]))
             localStorage.setItem(RANDOM_WEIGHT_LOCAL_STORAGE_KEY, JSON.stringify(randomWeightValue))
         }
-    }, [positionGroups, overallGroups, randomWeightValue]);
+    }, [positionGroups, overallGroups, randomWeightValue, selectedPlayerVersionIndex]);
 
     function createNewPositionGroup() {
         const positionPointGuard = {id: uuidv4(), name: "PG", selected: false};
@@ -125,7 +145,7 @@ export default function Setup({startDraft}) {
             positionSets.push(positionSet);
         });
         
-        startDraft(overallSets, positionSets, randomWeightValue);
+        startDraft(overallSets, positionSets, possiblePlayerVersions[selectedPlayerVersionIndex], randomWeightValue);
     }
 
     function handleRandomWeightChange(event) {
@@ -156,6 +176,10 @@ export default function Setup({startDraft}) {
                     </fieldset>
                 </StyledDiv>
             </StyledDiv>
+            <ButtonSelectionDiv>
+                <ButtonSelectionLabel>Player Versions:</ButtonSelectionLabel>
+                <ButtonSelectionGroup label="Player Versions" possibleValues={possiblePlayerVersions} selectedIndex={selectedPlayerVersionIndex} onChange={setSelectedPlayerVersionIndex} />
+            </ButtonSelectionDiv>
             <StyledDiv>
                 <label for={"random-weight-value"}>Random Weight Value:</label>
                 <input ref={randomWeightRef} onChange={handleRandomWeightChange} type="number" id={"random-weight-value"} min="1" max="50" value={randomWeightValue}/>

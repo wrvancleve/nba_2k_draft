@@ -7,6 +7,15 @@ function PlayerCollection() {
     this.randomWeightValue = 1;
 }
 
+PlayerCollection.prototype.setPlayerVersions = function(playerVersions) {
+    if (playerVersions === "Best") {
+        this.onlySingleVersion = true;
+    } else {
+        this.onlySingleVersion = false;
+    }
+    this.reset();
+}
+
 PlayerCollection.prototype.setRandomWeightValue = function(randomWeightValue) {
     this.randomWeightValue = randomWeightValue;
 }
@@ -80,7 +89,7 @@ PlayerCollection.prototype.remove = function(playerToRemove) {
 
 PlayerCollection.prototype.populate = function() {
     this.populateAllTime();
-    //this.populateExtended();
+    this.populateExtended();
     this.populateCurrent();
     this.populateClassic();
 }
@@ -115,14 +124,12 @@ PlayerCollection.prototype.populateAllTime = function() {
     if (!this.onlySingleVersion)
         this.add("Klay", "Thompson", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 91, "Golden State Warriors All-Time");
     this.add("Tim", "Hardaway", [Player.POSITION_POINT_GUARD], 90, "Golden State Warriors All-Time");
-    if (!this.onlySingleVersion)
-        this.add("Draymond", "Green", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 89, "Golden State Warriors All-Time");
+    this.add("Draymond", "Green", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 89, "Golden State Warriors All-Time");
     this.add("Sleepy", "Floyd", [Player.POSITION_POINT_GUARD], 88, "Golden State Warriors All-Time");
     this.add("Jason", "Richardson", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 87, "Golden State Warriors All-Time");
     this.add("Purvis", "Short", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 86, "Golden State Warriors All-Time");
     if (!this.onlySingleVersion)
         this.add("Andre", "Iguodala", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 84, "Golden State Warriors All-Time");
-    if (!this.onlySingleVersion)
         
     this.add("Clyde", "Drexler", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 96, "Portland Trail Blazers All-Time");
     this.add("Bill", "Walton", [Player.POSITION_CENTER], 95, "Portland Trail Blazers All-Time");
@@ -158,7 +165,8 @@ PlayerCollection.prototype.populateAllTime = function() {
     this.add("Isaiah", "Rider", [Player.POSITION_SHOOTING_GUARD], 84, "Minnesota Timberwolves All-Time");
     if (!this.onlySingleVersion)
         this.add("Andrew", "Wiggins", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 83, "Minnesota Timberwolves All-Time");
-    this.add("Latrell", "Sprewell", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 83, "Minnesota Timberwolves All-Time");
+    if (!this.onlySingleVersion)
+        this.add("Latrell", "Sprewell", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 83, "Minnesota Timberwolves All-Time");
 
     this.add("Kevin", "Durant", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 97, "Oklahoma City Thunder All-Time");
     this.add("Gary", "Payton", [Player.POSITION_POINT_GUARD], 95, "Oklahoma City Thunder All-Time");
@@ -482,7 +490,8 @@ PlayerCollection.prototype.populateAllTime = function() {
     this.add("Dell", "Curry", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 85, "Charlotte Hornets All-Time");
     this.add("Kendall", "Gill", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 85, "Charlotte Hornets All-Time");
     this.add("Gerald", "Wallace", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 84, "Charlotte Hornets All-Time");
-    this.add("P.J.", "Brown", [Player.POSITION_CENTER], 83, "Charlotte Hornets All-Time");
+    if (!this.onlySingleVersion)
+        this.add("P.J.", "Brown", [Player.POSITION_CENTER], 83, "Charlotte Hornets All-Time");
     this.add("Stephen", "Jackson", [Player.POSITION_SMALL_FORWARD], 83, "Charlotte Hornets All-Time");
     if (!this.onlySingleVersion)
         this.add("David", "Wesley", [Player.POSITION_SHOOTING_GUARD], 81, "Charlotte Hornets All-Time");
@@ -557,13 +566,11 @@ PlayerCollection.prototype.populateAllTime = function() {
     if (!this.onlySingleVersion)
         this.add("Chris", "Paul", [Player.POSITION_POINT_GUARD], 93, "Los Angeles Clippers All-Time");
     this.add("Elton", "Brand", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 90, "Los Angeles Clippers All-Time");
-    if (!this.onlySingleVersion)
-        this.add("Blake", "Griffin", [Player.POSITION_POWER_FORWARD], 90, "Los Angeles Clippers All-Time");
+    this.add("Blake", "Griffin", [Player.POSITION_POWER_FORWARD], 90, "Los Angeles Clippers All-Time");
     this.add("World B.", "Free", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 91, "Los Angeles Clippers All-Time");
     this.add("Ron", "Harper", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 89, "Los Angeles Clippers All-Time");
     this.add("Danny", "Manning", [Player.POSITION_POWER_FORWARD], 87, "Los Angeles Clippers All-Time");
-    if (!this.onlySingleVersion)
-        this.add("Deandre", "Jordan", [Player.POSITION_CENTER], 87, "Los Angeles Clippers All-Time");
+    this.add("Deandre", "Jordan", [Player.POSITION_CENTER], 87, "Los Angeles Clippers All-Time");
     this.add("Chris", "Kaman", [Player.POSITION_CENTER], 87, "Los Angeles Clippers All-Time");
     this.add("Norm", "Nixon", [Player.POSITION_POINT_GUARD], 86, "Los Angeles Clippers All-Time");
     this.add("Corey", "Maggette", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 86, "Los Angeles Clippers All-Time");
@@ -636,7 +643,8 @@ PlayerCollection.prototype.populateAllTime = function() {
     this.add("Khris", "Middleton", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 88, "Milwaukee Bucks All-Time");
     this.add("Michael", "Redd", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 88, "Milwaukee Bucks All-Time");
     this.add("Bob", "Dandridge", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 88, "Milwaukee Bucks All-Time");
-    this.add("Terry", "Cummings", [Player.POSITION_POWER_FORWARD], 87, "Milwaukee Bucks All-Time");
+    if (!this.onlySingleVersion)
+        this.add("Terry", "Cummings", [Player.POSITION_POWER_FORWARD], 87, "Milwaukee Bucks All-Time");
     this.add("Vin", "Baker", [Player.POSITION_POWER_FORWARD], 87, "Milwaukee Bucks All-Time");
     this.add("Junior", "Bridgeman", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 87, "Milwaukee Bucks All-Time");
     this.add("Glenn", "Robinson", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 87, "Milwaukee Bucks All-Time");
@@ -667,6 +675,10 @@ PlayerCollection.prototype.populateAllTime = function() {
 }
 
 PlayerCollection.prototype.populateExtended = function() {
+    this.add("Charles", "Barkley", [Player.POSITION_POWER_FORWARD], 95, "Free Agency");
+    if (!this.onlySingleVersion)
+        this.add("Kevin", "Durant", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 94, "Free Agency");
+
     /*
     this.add("Al", "Horford", [Player.POSITION_CENTER, Player.POSITION_POWER_FORWARD], 87, "Free Agency");
     this.add("Andre", "Iguodala", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 94, "Free Agency");
@@ -700,10 +712,6 @@ PlayerCollection.prototype.populateExtended = function() {
     this.add("Bronny", "James", [Player.POSITION_POINT_GUARD, Player.POSITION_SHOOTING_GUARD], 92, "Free Agency");
     this.add("Charles", "Barkley", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 97, "Free Agency");
     this.add("Chris", "Bosh", [Player.POSITION_CENTER, Player.POSITION_POWER_FORWARD], 94, "Free Agency");
-    if (!this.onlySingleVersion) {
-        this.add("Chris", "Webber", [Player.POSITION_POWER_FORWARD], 90, "Free Agency");
-    }
-    this.add("Chris", "Webber", [Player.POSITION_POWER_FORWARD], 93, "Free Agency");
     this.add("Dale", "Ellis", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 92, "Free Agency");
     if (!this.onlySingleVersion) {
         this.add("Danny", "Granger", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 85, "Free Agency");
@@ -752,7 +760,6 @@ PlayerCollection.prototype.populateExtended = function() {
     if (!this.onlySingleVersion) {
         this.add("Joakim", "Noah", [Player.POSITION_CENTER], 80, "Free Agency");
         this.add("Joe", "Dumars", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 87, "Free Agency");
-        this.add("Joe", "Johnson", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 81, "Free Agency");
         this.add("Joe", "Johnson", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 85, "Free Agency");
         this.add("Joe", "Johnson", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 90, "Free Agency");
     }
@@ -827,7 +834,6 @@ PlayerCollection.prototype.populateExtended = function() {
     this.add("Rudy", "Gobert", [Player.POSITION_CENTER], 93, "Free Agency");
     this.add("Scottie", "Barnes", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 91, "Free Agency");
     this.add("Serge", "Ibaka", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 93, "Free Agency");
-    this.add("Shai", "Gilgeous-Alexander", [Player.POSITION_POINT_GUARD, Player.POSITION_SHOOTING_GUARD], 92, "Free Agency");
     if (!this.onlySingleVersion) {
         this.add("Shaquille", "O'Neal", [Player.POSITION_CENTER], 84, "Free Agency");
         this.add("Shawn", "Kemp", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 85, "Free Agency");
@@ -856,277 +862,467 @@ PlayerCollection.prototype.populateExtended = function() {
 }
 
 PlayerCollection.prototype.populateClassic = function() {
-    this.add("Klay", "Thompson", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 92, "Golden State Warriors '16-'17");
+    if (!this.onlySingleVersion)
+        this.add("Kyle", "Lowry", [Player.POSITION_POINT_GUARD], 85, "Toronto Raptors '18-'19");
 
-    /*
-    this.add("A.C.", "Green", [Player.POSITION_POWER_FORWARD], 82, "Los Angeles Lakers '86-'87");
-    this.add("Aaron", "McKie", [Player.POSITION_POINT_GUARD, Player.POSITION_SHOOTING_GUARD], 81, "Philadelphia 76ers '00-'01");
-    this.add("Al", "Harrington", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 82, "Golden State Warriors '06-'07");
-    if (!this.onlySingleVersion) {
-        this.add("Allan", "Houston", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 83, "New York Knicks '98-'99");
-        this.add("Allen", "Iverson", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 89, "Denver Nuggets '07-'08");
-        this.add("Allen", "Iverson", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 94, "Philadelphia 76ers '00-'01");
-        this.add("Alonzo", "Mourning", [Player.POSITION_CENTER, Player.POSITION_POWER_FORWARD], 85, "Charlotte Hornets '92-'93");
-        this.add("Alonzo", "Mourning", [Player.POSITION_CENTER, Player.POSITION_POWER_FORWARD], 93, "Miami Heat '96-'97");
-        this.add("Amar'e", "Stoudemire", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 82, "Phoenix Suns '02-'03");
+    this.add("Klay", "Thompson", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 92, "Golden State Warriors '16-'17");
+    if (!this.onlySingleVersion)
+        this.add("Draymond", "Green", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 86, "Golden State Warriors '16-'17");
+    
+    if (!this.onlySingleVersion)
         this.add("Andre", "Iguodala", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 82, "Golden State Warriors '15-'16");
-        this.add("Arvydas", "Sabonis", [Player.POSITION_CENTER], 86, "Portland Trail Blazers '99-'00");
-        this.add("Baron", "Davis", [Player.POSITION_POINT_GUARD], 89, "Golden State Warriors '06-'07");
-    }
-    this.add("Bill", "Bradley", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 80, "New York Knicks '71-'72");
-    if (!this.onlySingleVersion) {
-        this.add("Bill", "Laimbeer", [Player.POSITION_CENTER], 80, "Detroit Pistons '88-'89");
-        this.add("Bill", "Walton", [Player.POSITION_CENTER], 82, "Boston Celtics '85-'86");
-    }
-    this.add("Blake", "Griffin", [Player.POSITION_POWER_FORWARD], 91, "Los Angeles Clippers '13-'14");
-    if (!this.onlySingleVersion) {
-        this.add("Bob", "Dandridge", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 85, "Milwaukee Bucks '70-'71");
-    }
-    this.add("Bobby", "Jackson", [Player.POSITION_POINT_GUARD], 80, "Sacramento Kings '01-'02");
-    if (!this.onlySingleVersion) {
-        this.add("Brad", "Daugherty", [Player.POSITION_CENTER], 85, "Cleveland Cavaliers '89-'90");
-        this.add("Brandon", "Roy", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 89, "Portland Trail Blazers '09-'10");
-        this.add("Bruce", "Bowen", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 84, "San Antonio Spurs '04-'05");
-        this.add("Byron", "Scott", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 85, "Los Angeles Lakers '86-'87");
-        this.add("Carlos", "Boozer", [Player.POSITION_POWER_FORWARD], 86, "Chicago Bulls '10-'11");
-        this.add("Carmelo", "Anthony", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 91, "New York Knicks '11-'12");
-        this.add("Carmelo", "Anthony", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 93, "Denver Nuggets '07-'08");
-        this.add("Caron", "Butler", [Player.POSITION_SMALL_FORWARD], 80, "Dallas Mavericks '10-'11");
-        this.add("Caron", "Butler", [Player.POSITION_SMALL_FORWARD], 86, "Washington Wizards '06-'07");
-        this.add("Charles", "Oakley", [Player.POSITION_POWER_FORWARD], 81, "New York Knicks '94-'95");
-        this.add("Charles", "Oakley", [Player.POSITION_POWER_FORWARD], 83, "Chicago Bulls '85-'86");
-        this.add("Chauncey", "Billups", [Player.POSITION_POINT_GUARD, Player.POSITION_SHOOTING_GUARD], 89, "Detroit Pistons '03-'04");
-        this.add("Chris", "Bosh", [Player.POSITION_CENTER, Player.POSITION_POWER_FORWARD], 87, "Miami Heat '12-'13");
-        this.add("Chris", "Mullin", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 89, "Golden State Warriors '90-'91");
-        this.add("Chris", "Paul", [Player.POSITION_POINT_GUARD], 94, "Los Angeles Clippers '13-'14");
-        this.add("Clyde", "Drexler", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 92, "Portland Trail Blazers '90-'91");
-        this.add("Damon", "Stoudamire", [Player.POSITION_POINT_GUARD], 81, "Portland Trail Blazers '99-'00");
-        this.add("Dan", "Majerle", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 80, "Miami Heat '96-'97");
-    }
-    this.add("Danny", "Green", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 82, "San Antonio Spurs '13-'14");
-    if (!this.onlySingleVersion) {
-        this.add("Dave", "DeBusschere", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 83, "New York Knicks '71-'72");
-        this.add("David", "Robinson", [Player.POSITION_CENTER], 91, "San Antonio Spurs '97-'98");
-        this.add("David", "West", [Player.POSITION_POWER_FORWARD], 81, "Indiana Pacers '13-'14");
-        this.add("Dell", "Curry", [Player.POSITION_SHOOTING_GUARD], 80, "Charlotte Hornets '92-'93");
-        this.add("Dennis", "Johnson", [Player.POSITION_POINT_GUARD, Player.POSITION_SHOOTING_GUARD], 84, "Boston Celtics '85-'86");
-        this.add("Dennis", "Rodman", [Player.POSITION_POWER_FORWARD], 83, "Detroit Pistons '88-'89");
-        this.add("Dennis", "Rodman", [Player.POSITION_POWER_FORWARD], 85, "Chicago Bulls '97-'98");
-        this.add("Dennis", "Scott", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 82, "Orlando Magic '94-'95");
-        this.add("Detlef", "Schrempf", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 83, "Seattle SuperSonics '95-'96");
-        this.add("Dikembe", "Mutombo", [Player.POSITION_CENTER], 83, "Philadelphia 76ers '00-'01");
-        this.add("Dikembe", "Mutombo", [Player.POSITION_CENTER], 84, "Denver Nuggets '93-'94");
-        this.add("Dirk", "Nowitzki", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 92, "Dallas Mavericks '02-'03");
-        this.add("Dirk", "Nowitzki", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 96, "Dallas Mavericks '10-'11");
-        this.add("Doc", "Rivers", [Player.POSITION_POINT_GUARD], 83, "Atlanta Hawks '85-'86");
-        this.add("Dominique", "Wilkins", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 92, "Atlanta Hawks '85-'86");
-        this.add("Doug", "Christie", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 80, "Toronto Raptors '99-'00");
-        this.add("Doug", "Christie", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 83, "Sacramento Kings '01-'02");
-        this.add("Doug", "Collins", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 85, "Philadelphia 76ers '76-'77");
-        this.add("Draymond", "Green", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 87, "Golden State Warriors '16-'17");
-        this.add("Draymond", "Green", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 90, "Golden State Warriors '15-'16");
-        this.add("Dwyane", "Wade", [Player.POSITION_SHOOTING_GUARD], 92, "Miami Heat '12-'13");
-        this.add("Dwyane", "Wade", [Player.POSITION_SHOOTING_GUARD], 96, "Miami Heat '05-'06");
-        this.add("Eddie", "Jones", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 83, "Los Angeles Lakers '97-'98");
-        this.add("Elgin", "Baylor", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 92, "Los Angeles Lakers '64-'65");
-    }
-    this.add("Eric", "Snow", [Player.POSITION_POINT_GUARD], 80, "Philadelphia 76ers '00-'01");
-    if (!this.onlySingleVersion) {
-        this.add("Gail", "Goodrich", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 83, "Los Angeles Lakers '70-'71");
-        this.add("Gary", "Payton", [Player.POSITION_POINT_GUARD], 83, "Los Angeles Lakers '03-'04");
-        this.add("Gary", "Payton", [Player.POSITION_POINT_GUARD], 94, "Seattle SuperSonics '95-'96");
-        this.add("George", "Gervin", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 82, "Chicago Bulls '85-'86");
-    }
-    this.add("George", "Hill", [Player.POSITION_POINT_GUARD], 80, "Indiana Pacers '13-'14");
-    if (!this.onlySingleVersion) {
-        this.add("George", "McGinnis", [Player.POSITION_POWER_FORWARD], 86, "Philadelphia 76ers '76-'77");
-        this.add("Gilbert", "Arenas", [Player.POSITION_POINT_GUARD], 91, "Washington Wizards '06-'07");
-        this.add("Greg", "Oden", [Player.POSITION_CENTER], 83, "Portland Trail Blazers '09-'10");
-        this.add("Hakeem", "Olajuwon", [Player.POSITION_CENTER], 97, "Houston Rockets '93-'94");
-    }
-    this.add("Harrison", "Barnes", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 81, "Golden State Warriors '15-'16");
-    this.add("Henry", "Bibby", [Player.POSITION_POINT_GUARD], 81, "Philadelphia 76ers '76-'77");
-    if (!this.onlySingleVersion) {
-        this.add("Horace", "Grant", [Player.POSITION_POWER_FORWARD], 80, "Los Angeles Lakers '00-'01");
-        this.add("Horace", "Grant", [Player.POSITION_POWER_FORWARD], 82, "Orlando Magic '94-'95");
-        this.add("Horace", "Grant", [Player.POSITION_POWER_FORWARD], 83, "Chicago Bulls '92-'93");
-        this.add("Isiah", "Thomas", [Player.POSITION_POINT_GUARD], 93, "Detroit Pistons '88-'89");
-        this.add("J.R.", "Smith", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 80, "Cleveland Cavaliers '15-'16");
-        this.add("Jamal", "Crawford", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 81, "Los Angeles Clippers '13-'14");
-        this.add("Jamal", "Mashburn", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 80, "Miami Heat '96-'97");
-        this.add("James", "Harden", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 88, "Oklahoma City Thunder '11-'12");
-        this.add("James", "Worthy", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 86, "Los Angeles Lakers '86-'87");
-        this.add("James", "Worthy", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 88, "Los Angeles Lakers '90-'91");
-        this.add("Jason", "Kidd", [Player.POSITION_POINT_GUARD], 94, "New Jersey Nets '01-'02");
-        this.add("Jason", "Richardson", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 81, "Golden State Warriors '06-'07");
-        this.add("Jeff", "Hornacek", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 82, "Utah Jazz '97-'98");
-    }
-    this.add("Jeremy", "Lin", [Player.POSITION_POINT_GUARD], 84, "New York Knicks '11-'12");
-    if (!this.onlySingleVersion) {
-        this.add("Jerome", "Kersey", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 82, "Portland Trail Blazers '90-'91");
-        this.add("Jerry", "Lucas", [Player.POSITION_POWER_FORWARD], 86, "New York Knicks '71-'72");
-        this.add("Jerry", "West", [Player.POSITION_POINT_GUARD], 94, "Los Angeles Lakers '64-'65");
-        this.add("Jerry", "West", [Player.POSITION_POINT_GUARD], 96, "Los Angeles Lakers '70-'71");
-        this.add("Joakim", "Noah", [Player.POSITION_CENTER], 86, "Chicago Bulls '10-'11");
-        this.add("Joe", "Dumars", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 91, "Detroit Pistons '88-'89");
-        this.add("John", "Havlicek", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 83, "Boston Celtics '64-'65");
-        this.add("John", "Starks", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 83, "New York Knicks '94-'95");
-        this.add("John", "Stockton", [Player.POSITION_POINT_GUARD], 94, "Utah Jazz '97-'98");
-    }
-    this.add("John", "Williams", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 82, "Cleveland Cavaliers '89-'90");
-    if (!this.onlySingleVersion) {
-        this.add("Julius", "Erving", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 95, "Philadelphia 76ers '76-'77");
-    }
-    this.add("K.C.", "Jones", [Player.POSITION_POINT_GUARD], 85, "Boston Celtics '64-'65");
-    if (!this.onlySingleVersion) {
-        this.add("Kareem", "Abdul-Jabbar", [Player.POSITION_CENTER], 95, "Los Angeles Lakers '86-'87");
-        this.add("Kareem", "Abdul-Jabbar", [Player.POSITION_CENTER], 98, "Milwaukee Bucks '70-'71");
-        this.add("Kawhi", "Leonard", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 93, "San Antonio Spurs '13-'14");
-        this.add("Kawhi", "Leonard", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 97, "Toronto Raptors '18-'19");
-        this.add("Keith", "Van Horn", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 82, "New Jersey Nets '01-'02");
-        this.add("Kendall", "Gill", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 80, "Charlotte Hornets '92-'93");
-        this.add("Kenyon", "Martin", [Player.POSITION_POWER_FORWARD], 80, "Denver Nuggets '07-'08");
-        this.add("Kenyon", "Martin", [Player.POSITION_POWER_FORWARD], 83, "New Jersey Nets '01-'02");
-    }
-    this.add("Kerry", "Kittles", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 82, "New Jersey Nets '01-'02");
-    if (!this.onlySingleVersion) {
-        this.add("Kevin", "Durant", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 96, "Oklahoma City Thunder '11-'12");
-        this.add("Kevin", "Garnett", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 94, "Boston Celtics '07-'08");
-        this.add("Kevin", "McHale", [Player.POSITION_POWER_FORWARD], 92, "Boston Celtics '85-'86");
-        this.add("Klay", "Thompson", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 92, "Golden State Warriors '16-'17");
-        this.add("Kobe", "Bryant", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 84, "Los Angeles Lakers '97-'98");
-        this.add("Kobe", "Bryant", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 96, "Los Angeles Lakers '03-'04");
-        this.add("Kyle", "Lowry", [Player.POSITION_POINT_GUARD], 86, "Toronto Raptors '18-'19");
-        this.add("Kyrie", "Irving", [Player.POSITION_POINT_GUARD], 93, "Cleveland Cavaliers '15-'16");
-        this.add("LaMarcus", "Aldridge", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 85, "Portland Trail Blazers '09-'10");
-        this.add("Lance", "Stephenson", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 80, "Indiana Pacers '13-'14");
-    }
-    this.add("Laphonso", "Ellis", [Player.POSITION_POWER_FORWARD], 81, "Denver Nuggets '93-'94");
-    if (!this.onlySingleVersion) {
-        this.add("Larry", "Bird", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 97, "Boston Celtics '85-'86");
-    }
-    this.add("Larry", "Hughes", [Player.POSITION_POINT_GUARD], 82, "Cleveland Cavaliers '06-'07");
-    if (!this.onlySingleVersion) {
-        this.add("Larry", "Johnson", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 81, "New York Knicks '98-'99");
-        this.add("Larry", "Johnson", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 85, "Charlotte Hornets '92-'93");
-        this.add("Larry", "Nance", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 85, "Cleveland Cavaliers '89-'90");
-    }
-    this.add("Latrell", "Sprewell", [Player.POSITION_SMALL_FORWARD], 85, "New York Knicks '98-'99");
-    if (!this.onlySingleVersion) {
-        this.add("LeBron", "James", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 97, "Cleveland Cavaliers '06-'07");
-        this.add("Magic", "Johnson", [Player.POSITION_POINT_GUARD, Player.POSITION_SHOOTING_GUARD], 93, "Los Angeles Lakers '90-'91");
-        this.add("Magic", "Johnson", [Player.POSITION_POINT_GUARD, Player.POSITION_SHOOTING_GUARD], 97, "Los Angeles Lakers '86-'87");
-        this.add("Mahmoud", "Abdul-Rauf", [Player.POSITION_POINT_GUARD], 84, "Denver Nuggets '93-'94");
-        this.add("Manu", "Ginobili", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 83, "San Antonio Spurs '13-'14");
-        this.add("Manu", "Ginobili", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 87, "San Antonio Spurs '04-'05");
-        this.add("Marcus", "Camby", [Player.POSITION_CENTER], 80, "New York Knicks '98-'99");
-        this.add("Marcus", "Camby", [Player.POSITION_CENTER], 82, "Portland Trail Blazers '09-'10");
-    }
-    this.add("Marcus", "Camby", [Player.POSITION_CENTER], 87, "Denver Nuggets '07-'08");
-    if (!this.onlySingleVersion) {
-        this.add("Mark", "Aguirre", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 82, "Detroit Pistons '88-'89");
-        this.add("Mark", "Price", [Player.POSITION_POINT_GUARD], 89, "Cleveland Cavaliers '89-'90");
-        this.add("Michael", "Finley", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 82, "Dallas Mavericks '02-'03");
-        this.add("Michael", "Jordan", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 92, "Chicago Bulls '85-'86");
-        this.add("Michael", "Jordan", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 98, "Chicago Bulls '97-'98");
-        this.add("Mike", "Bibby", [Player.POSITION_POINT_GUARD], 84, "Sacramento Kings '01-'02");
-        this.add("Mike", "Conley", [Player.POSITION_POINT_GUARD], 86, "Memphis Grizzlies '12-'13");
-        this.add("Mitch", "Richmond", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 86, "Golden State Warriors '90-'91");
-        this.add("Monta", "Ellis", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 82, "Golden State Warriors '06-'07");
-        this.add("Muggsy", "Bogues", [Player.POSITION_POINT_GUARD], 82, "Charlotte Hornets '92-'93");
-    }
-    this.add("Mychal", "Thompson", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 80, "Los Angeles Lakers '86-'87");
-    this.add("Nate", "McMillan", [Player.POSITION_POINT_GUARD], 80, "Seattle SuperSonics '95-'96");
-    if (!this.onlySingleVersion) {
-        this.add("Nick", "Anderson", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 83, "Orlando Magic '94-'95");
-        this.add("Nick", "Van Exel", [Player.POSITION_POINT_GUARD], 82, "Dallas Mavericks '02-'03");
-    }
-    this.add("Nick", "Van Exel", [Player.POSITION_POINT_GUARD], 84, "Los Angeles Lakers '97-'98");
-    this.add("Nicolas", "Batum", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 83, "Portland Trail Blazers '09-'10");
-    this.add("Orlando", "Woolridge", [Player.POSITION_SMALL_FORWARD], 83, "Chicago Bulls '85-'86");
-    if (!this.onlySingleVersion) {
-        this.add("Oscar", "Robertson", [Player.POSITION_POINT_GUARD], 93, "Milwaukee Bucks '70-'71");
-        this.add("Otis", "Thorpe", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 80, "Houston Rockets '93-'94");
-    }
-    this.add("P.J.", "Brown", [Player.POSITION_CENTER], 84, "Miami Heat '96-'97");
-    if (!this.onlySingleVersion) {
-        this.add("Patrick", "Ewing", [Player.POSITION_CENTER], 85, "New York Knicks '98-'99");
-        this.add("Patrick", "Ewing", [Player.POSITION_CENTER], 91, "New York Knicks '94-'95");
-        this.add("Pau", "Gasol", [Player.POSITION_CENTER], 91, "Memphis Grizzlies '05-'06");
-        this.add("Paul", "Pierce", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 92, "Boston Celtics '07-'08");
-    }
-    this.add("Paul", "Pressey", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 86, "Milwaukee Bucks '84-'85");
-    if (!this.onlySingleVersion) {
-        this.add("Peja", "Stojakovic", [Player.POSITION_SMALL_FORWARD], 87, "Sacramento Kings '01-'02");
-        this.add("Penny", "Hardaway", [Player.POSITION_POINT_GUARD, Player.POSITION_SHOOTING_GUARD], 80, "Phoenix Suns '02-'03");
-        this.add("Penny", "Hardaway", [Player.POSITION_POINT_GUARD, Player.POSITION_SHOOTING_GUARD], 86, "Orlando Magic '94-'95");
-        this.add("Rajon", "Rondo", [Player.POSITION_POINT_GUARD], 86, "Boston Celtics '07-'08");
-        this.add("Richard", "Hamilton", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 88, "Detroit Pistons '03-'04");
-    }
-    this.add("Rick", "Fox", [Player.POSITION_SMALL_FORWARD], 80, "Los Angeles Lakers '97-'98");
-    if (!this.onlySingleVersion) {
-        this.add("Robert", "Parish", [Player.POSITION_CENTER], 87, "Boston Celtics '85-'86");
-        this.add("Ron", "Harper", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 80, "Chicago Bulls '97-'98");
+    
+    this.add("Jamal", "Crawford", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 82, "Los Angeles Clippers '13-'14");
+    
+    if (!this.onlySingleVersion)
         this.add("Roy", "Hibbert", [Player.POSITION_CENTER], 83, "Indiana Pacers '13-'14");
-    }
-    this.add("Rudy", "Larusso", [Player.POSITION_POWER_FORWARD], 82, "Los Angeles Lakers '64-'65");
-    if (!this.onlySingleVersion) {
-        this.add("Russell", "Westbrook", [Player.POSITION_POINT_GUARD], 90, "Oklahoma City Thunder '11-'12");
-        this.add("Sam", "Cassell", [Player.POSITION_POINT_GUARD], 87, "Minnesota Timberwolves '03-'04");
-    }
-    this.add("Sam", "Jones", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 89, "Boston Celtics '64-'65");
-    if (!this.onlySingleVersion) {
-        this.add("Scottie", "Pippen", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 82, "Chicago Bulls '88-'89");
-        this.add("Scottie", "Pippen", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 85, "Portland Trail Blazers '99-'00");
-        this.add("Scottie", "Pippen", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 89, "Chicago Bulls '90-'91");
-        this.add("Scottie", "Pippen", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 90, "Chicago Bulls '97-'98");
-        this.add("Scottie", "Pippen", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 94, "Chicago Bulls '92-'93");
-        this.add("Scottie", "Pippen", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 96, "Chicago Bulls '95-'96");
-        this.add("Serge", "Ibaka", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 88, "Oklahoma City Thunder '11-'12");
-        this.add("Shane", "Battier", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 80, "Houston Rockets '07-'08");
-        this.add("Shane", "Battier", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 83, "Memphis Grizzlies '05-'06");
-        this.add("Shaquille", "O'Neal", [Player.POSITION_CENTER], 90, "Miami Heat '05-'06");
-        this.add("Shaquille", "O'Neal", [Player.POSITION_CENTER], 94, "Orlando Magic '94-'95");
-        this.add("Shaquille", "O'Neal", [Player.POSITION_CENTER], 97, "Los Angeles Lakers '03-'04");
-        this.add("Shawn", "Marion", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 83, "Dallas Mavericks '10-'11");
-        this.add("Shawn", "Marion", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 88, "Phoenix Suns '04-'05");
-        this.add("Sidney", "Moncrief", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 91, "Milwaukee Bucks '84-'85");
-        this.add("Stephen", "Jackson", [Player.POSITION_SMALL_FORWARD], 81, "Golden State Warriors '06-'07");
-        this.add("Stephon", "Marbury", [Player.POSITION_POINT_GUARD], 85, "Phoenix Suns '02-'03");
-        this.add("Steve", "Nash", [Player.POSITION_POINT_GUARD], 88, "Dallas Mavericks '02-'03");
-        this.add("Steve", "Nash", [Player.POSITION_POINT_GUARD], 95, "Phoenix Suns '04-'05");
-        this.add("Steve", "Smith", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 83, "Portland Trail Blazers '99-'00");
-    }
-    this.add("Terry", "Cummings", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 88, "Milwaukee Bucks '84-'85");
-    if (!this.onlySingleVersion) {
-        this.add("Terry", "Porter", [Player.POSITION_POINT_GUARD], 85, "Portland Trail Blazers '90-'91");
-        this.add("Tim", "Duncan", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 89, "San Antonio Spurs '97-'98");
-        this.add("Tim", "Duncan", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 95, "San Antonio Spurs '13-'14");
-        this.add("Tim", "Hardaway", [Player.POSITION_POINT_GUARD], 87, "Golden State Warriors '90-'91");
-        this.add("Tim", "Hardaway", [Player.POSITION_POINT_GUARD], 88, "Miami Heat '96-'97");
-        this.add("Tom", "Heinsohn", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 80, "Boston Celtics '64-'65");
-    }
-    this.add("Tom", "Sanders", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 85, "Boston Celtics '64-'65");
-    if (!this.onlySingleVersion) {
-        this.add("Toni", "Kukoc", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 83, "Chicago Bulls '95-'96");
+    if (!this.onlySingleVersion)
+        this.add("David", "West", [Player.POSITION_POWER_FORWARD], 81, "Indiana Pacers '13-'14");
+    
+    if (!this.onlySingleVersion)
+        this.add("Tim", "Duncan", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 94, "San Antonio Spurs '13-'14");
+    if (!this.onlySingleVersion)
+        this.add("Kawhi", "Leonard", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 92, "San Antonio Spurs '13-'14");
+    if (!this.onlySingleVersion)
         this.add("Tony", "Parker", [Player.POSITION_POINT_GUARD], 87, "San Antonio Spurs '13-'14");
-        this.add("Tony", "Parker", [Player.POSITION_POINT_GUARD], 91, "San Antonio Spurs '04-'05");
-        this.add("Tracy", "McGrady", [Player.POSITION_SHOOTING_GUARD], 84, "Toronto Raptors '99-'00");
-        this.add("Tyson", "Chandler", [Player.POSITION_CENTER], 84, "Dallas Mavericks '10-'11");
-        this.add("Tyson", "Chandler", [Player.POSITION_CENTER], 85, "New York Knicks '11-'12");
+    if (!this.onlySingleVersion)
+        this.add("Manu", "Ginobili", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 83, "San Antonio Spurs '13-'14");
+    this.add("Danny", "Green", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 82, "San Antonio Spurs '13-'14");
+    
+    if (!this.onlySingleVersion)
+        this.add("Dwyane", "Wade", [Player.POSITION_SHOOTING_GUARD], 91, "Miami Heat '12-'13");
+    if (!this.onlySingleVersion)
+        this.add("Chris", "Bosh", [Player.POSITION_CENTER, Player.POSITION_POWER_FORWARD], 86, "Miami Heat '12-'13");
+    
+    if (!this.onlySingleVersion)
+        this.add("Marc", "Gasol", [Player.POSITION_CENTER], 89, "Memphis Grizzlies '12-'13");
+    if (!this.onlySingleVersion)
+        this.add("Mike", "Conley", [Player.POSITION_POINT_GUARD], 86, "Memphis Grizzlies '12-'13");
+    if (!this.onlySingleVersion)
+        this.add("Zach", "Randolph", [Player.POSITION_POWER_FORWARD], 86, "Memphis Grizzlies '12-'13");
+    
+    if (!this.onlySingleVersion)
+        this.add("Kevin", "Durant", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 96, "Oklahoma City Thunder '11-'12");
+    if (!this.onlySingleVersion)
+        this.add("Russell", "Westbrook", [Player.POSITION_POINT_GUARD], 89, "Oklahoma City Thunder '11-'12");
+    if (!this.onlySingleVersion)
+        this.add("Serge", "Ibaka", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 87, "Oklahoma City Thunder '11-'12");
+    if (!this.onlySingleVersion)
+        this.add("James", "Harden", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 87, "Oklahoma City Thunder '11-'12");
+    
+    if (!this.onlySingleVersion)
+        this.add("Carmelo", "Anthony", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 90, "New York Knicks '11-'12");
+    this.add("Jeremy", "Lin", [Player.POSITION_POINT_GUARD], 84, "New York Knicks '11-'12");
+    
+    if (!this.onlySingleVersion)
+        this.add("Dirk", "Nowitzki", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 95, "Dallas Mavericks '10-'11");
+    if (!this.onlySingleVersion)
+        this.add("Shawn", "Marion", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 83, "Dallas Mavericks '10-'11");
+    if (!this.onlySingleVersion)
+        this.add("Caron", "Butler", [Player.POSITION_SMALL_FORWARD], 80, "Dallas Mavericks '10-'11");
+    
+    if (!this.onlySingleVersion)
+        this.add("Carlos", "Boozer", [Player.POSITION_POWER_FORWARD], 85, "Chicago Bulls '10-'11");
+    this.add("Luol", "Deng", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 83, "Chicago Bulls '10-'11");
+    
+    if (!this.onlySingleVersion)
+        this.add("Brandon", "Roy", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 89, "Portland Trail Blazers '09-'10");
+    if (!this.onlySingleVersion)
+        this.add("LaMarcus", "Aldridge", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 84, "Portland Trail Blazers '09-'10");
+    this.add("Greg", "Oden", [Player.POSITION_CENTER], 83, "Portland Trail Blazers '09-'10");
+    this.add("Nicolas", "Batum", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 83, "Portland Trail Blazers '09-'10");
+    
+    if (!this.onlySingleVersion)
+        this.add("Yao", "Ming", [Player.POSITION_CENTER], 88, "Houston Rockets '07-'08");
+
+    this.add("Marcus", "Camby", [Player.POSITION_CENTER], 87, "Denver Nuggets '07-'08");
+    
+    if (!this.onlySingleVersion)
+        this.add("Kevin", "Garnett", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 93, "Boston Celtics '07-'08");
+    if (!this.onlySingleVersion)
+        this.add("Paul", "Pierce", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 92, "Boston Celtics '07-'08");
+    if (!this.onlySingleVersion)
+        this.add("Rajon", "Rondo", [Player.POSITION_POINT_GUARD], 85, "Boston Celtics '07-'08");
+    
+    if (!this.onlySingleVersion)
+        this.add("Gilbert", "Arenas", [Player.POSITION_POINT_GUARD], 91, "Washington Wizards '06-'07");
+    if (!this.onlySingleVersion)
+        this.add("Caron", "Butler", [Player.POSITION_SMALL_FORWARD], 86, "Washington Wizards '06-'07");
+    if (!this.onlySingleVersion)
+        
+    if (!this.onlySingleVersion)
+        this.add("Baron", "Davis", [Player.POSITION_POINT_GUARD], 89, "Golden State Warriors '06-'07");
+    this.add("Al", "Harrington", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 82, "Golden State Warriors '06-'07");
+    this.add("Monta", "Ellis", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 82, "Golden State Warriors '06-'07");
+    if (!this.onlySingleVersion)
+        this.add("Jason", "Richardson", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 81, "Golden State Warriors '06-'07");
+    if (!this.onlySingleVersion)
+        this.add("Stephen", "Jackson", [Player.POSITION_SMALL_FORWARD], 81, "Golden State Warriors '06-'07");
+    
+    if (!this.onlySingleVersion)
+        this.add("LeBron", "James", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 97, "Cleveland Cavaliers '06-'07");
+    if (!this.onlySingleVersion)
+        this.add("Zydrunas", "Ilgauskas", [Player.POSITION_CENTER], 82, "Cleveland Cavaliers '06-'07");
+    this.add("Larry", "Hughes", [Player.POSITION_POINT_GUARD], 81, "Cleveland Cavaliers '06-'07");
+    
+    if (!this.onlySingleVersion)
+        this.add("Dwyane", "Wade", [Player.POSITION_SHOOTING_GUARD], 95, "Miami Heat '05-'06");
+    
+    if (!this.onlySingleVersion)
+        this.add("Pau", "Gasol", [Player.POSITION_CENTER], 91, "Memphis Grizzlies '05-'06");
+    if (!this.onlySingleVersion)
+        this.add("Shane", "Battier", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 83, "Memphis Grizzlies '05-'06");
+    if (!this.onlySingleVersion)
+        this.add("Mike", "Miller", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 81, "Memphis Grizzlies '05-'06");
+    
+    if (!this.onlySingleVersion)
+        this.add("Steve", "Nash", [Player.POSITION_POINT_GUARD], 95, "Phoenix Suns '04-'05");
+    if (!this.onlySingleVersion)
+        this.add("Amar'e", "Stoudemire", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 89, "Phoenix Suns '04-'05");
+    if (!this.onlySingleVersion)
+        this.add("Shawn", "Marion", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 87, "Phoenix Suns '04-'05");
+    if (!this.onlySingleVersion)
+        this.add("Joe", "Johnson", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 81, "Phoenix Suns '04-'05");
+    
+    if (!this.onlySingleVersion)
+        this.add("Tony", "Parker", [Player.POSITION_POINT_GUARD], 90, "San Antonio Spurs '04-'05");
+    if (!this.onlySingleVersion)
+        this.add("Manu", "Ginobili", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 87, "San Antonio Spurs '04-'05");
+    if (!this.onlySingleVersion)
+        this.add("Bruce", "Bowen", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 84, "San Antonio Spurs '04-'05");
+    
+    if (!this.onlySingleVersion)
+        this.add("Kevin", "Garnett", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 97, "Minnesota Timberwolves '03-'04");
+    if (!this.onlySingleVersion)
+        this.add("Sam", "Cassell", [Player.POSITION_POINT_GUARD], 87, "Minnesota Timberwolves '03-'04");
+    
+    if (!this.onlySingleVersion)
+        this.add("Chauncey", "Billups", [Player.POSITION_POINT_GUARD, Player.POSITION_SHOOTING_GUARD], 89, "Detroit Pistons '03-'04");
+    if (!this.onlySingleVersion)
+        this.add("Ben", "Wallace", [Player.POSITION_POWER_FORWARD], 88, "Detroit Pistons '03-'04");
+    
+    if (!this.onlySingleVersion)
+        this.add("Shaquille", "O'Neal", [Player.POSITION_CENTER], 96, "Los Angeles Lakers '03-'04");
+    if (!this.onlySingleVersion)
+        this.add("Kobe", "Bryant", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 95, "Los Angeles Lakers '03-'04");
+    if (!this.onlySingleVersion)
+        this.add("Gary", "Payton", [Player.POSITION_POINT_GUARD], 83, "Los Angeles Lakers '03-'04");
+    
+    if (!this.onlySingleVersion)
+        this.add("Shawn", "Marion", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 86, "Phoenix Suns '02-'03");
+    if (!this.onlySingleVersion)
+        this.add("Stephon", "Marbury", [Player.POSITION_POINT_GUARD], 85, "Phoenix Suns '02-'03");
+    if (!this.onlySingleVersion)
+        this.add("Amar'e", "Stoudemire", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 81, "Phoenix Suns '02-'03");
+    
+    if (!this.onlySingleVersion)
+        this.add("Dirk", "Nowitzki", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 91, "Dallas Mavericks '02-'03");
+    if (!this.onlySingleVersion)
+        this.add("Steve", "Nash", [Player.POSITION_POINT_GUARD], 87, "Dallas Mavericks '02-'03");
+    if (!this.onlySingleVersion)
+        this.add("Michael", "Finley", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 82, "Dallas Mavericks '02-'03");
+    if (!this.onlySingleVersion)
+        this.add("Nick", "Van Exel", [Player.POSITION_POINT_GUARD], 82, "Dallas Mavericks '02-'03");
+    
+    if (!this.onlySingleVersion)
+        this.add("Jason", "Kidd", [Player.POSITION_POINT_GUARD], 93, "New Jersey Nets '01-'02");
+    if (!this.onlySingleVersion)
+        this.add("Kenyon", "Martin", [Player.POSITION_POWER_FORWARD], 83, "New Jersey Nets '01-'02");
+    if (!this.onlySingleVersion)
+        this.add("Keith", "Van Horn", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 82, "New Jersey Nets '01-'02");
+    this.add("Kerry", "Kittles", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 82, "New Jersey Nets '01-'02");
+    
+    if (!this.onlySingleVersion)
+        this.add("Peja", "Stojakovic", [Player.POSITION_SMALL_FORWARD], 87, "Sacramento Kings '01-'02");
+    if (!this.onlySingleVersion)
+        this.add("Vlade", "Divac", [Player.POSITION_CENTER], 86, "Sacramento Kings '01-'02");
+    if (!this.onlySingleVersion)
+        this.add("Mike", "Bibby", [Player.POSITION_POINT_GUARD], 83, "Sacramento Kings '01-'02");
+    if (!this.onlySingleVersion)
+        this.add("Doug", "Christie", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 83, "Sacramento Kings '01-'02");
+    
+    if (!this.onlySingleVersion)
+        this.add("Kobe", "Bryant", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 97, "Los Angeles Lakers '00-'01");
+    if (!this.onlySingleVersion)
+        this.add("Shaquille", "O'Neal", [Player.POSITION_CENTER], 97, "Los Angeles Lakers '00-'01");
+    if (!this.onlySingleVersion)
+        this.add("Horace", "Grant", [Player.POSITION_POWER_FORWARD], 80, "Los Angeles Lakers '00-'01");
+    
+    if (!this.onlySingleVersion)
+        this.add("Allen", "Iverson", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 94, "Philadelphia 76ers '00-'01");
+    if (!this.onlySingleVersion)
+        this.add("Dikembe", "Mutombo", [Player.POSITION_CENTER], 82, "Philadelphia 76ers '00-'01");
+    this.add("Eric", "Snow", [Player.POSITION_POINT_GUARD], 80, "Philadelphia 76ers '00-'01");
+    this.add("Aaron", "McKie", [Player.POSITION_POINT_GUARD, Player.POSITION_SHOOTING_GUARD], 80, "Philadelphia 76ers '00-'01");
+    
+    if (!this.onlySingleVersion)
+        this.add("Arvydas", "Sabonis", [Player.POSITION_CENTER], 86, "Portland Trail Blazers '99-'00");
+    if (!this.onlySingleVersion)
+        this.add("Scottie", "Pippen", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 85, "Portland Trail Blazers '99-'00");
+    if (!this.onlySingleVersion)
+        this.add("Steve", "Smith", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 82, "Portland Trail Blazers '99-'00");
+    if (!this.onlySingleVersion)
+        this.add("Damon", "Stoudamire", [Player.POSITION_POINT_GUARD], 81, "Portland Trail Blazers '99-'00");
+    
+    if (!this.onlySingleVersion)
         this.add("Vince", "Carter", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 94, "Toronto Raptors '99-'00");
-    }
+    if (!this.onlySingleVersion)
+        this.add("Tracy", "McGrady", [Player.POSITION_SHOOTING_GUARD], 83, "Toronto Raptors '99-'00");
+    if (!this.onlySingleVersion)
+        this.add("Doug", "Christie", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 80, "Toronto Raptors '99-'00");
+    
+    this.add("Latrell", "Sprewell", [Player.POSITION_SMALL_FORWARD], 84, "New York Knicks '98-'99");
+    if (!this.onlySingleVersion)
+        this.add("Patrick", "Ewing", [Player.POSITION_CENTER], 84, "New York Knicks '98-'99");
+    if (!this.onlySingleVersion)
+        this.add("Allan", "Houston", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 83, "New York Knicks '98-'99");
+    if (!this.onlySingleVersion)
+        this.add("Larry", "Johnson", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 81, "New York Knicks '98-'99");
+    
+    if (!this.onlySingleVersion)
+        this.add("David", "Robinson", [Player.POSITION_CENTER], 91, "San Antonio Spurs '97-'98");
+    if (!this.onlySingleVersion)
+        this.add("Tim", "Duncan", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 88, "San Antonio Spurs '97-'98");
+    
+    if (!this.onlySingleVersion)
+        this.add("Shaquille", "O'Neal", [Player.POSITION_CENTER], 93, "Los Angeles Lakers '97-'98");
+    this.add("Nick", "Van Exel", [Player.POSITION_POINT_GUARD], 83, "Los Angeles Lakers '97-'98");
+    if (!this.onlySingleVersion)
+        this.add("Eddie", "Jones", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 83, "Los Angeles Lakers '97-'98");
+    if (!this.onlySingleVersion)
+        this.add("Kobe", "Bryant", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 83, "Los Angeles Lakers '97-'98");
+    this.add("Rick", "Fox", [Player.POSITION_SMALL_FORWARD], 80, "Los Angeles Lakers '97-'98");
+    
+    if (!this.onlySingleVersion)
+        this.add("Karl", "Malone", [Player.POSITION_POWER_FORWARD], 96, "San Antonio Spurs '97-'98");
+    if (!this.onlySingleVersion)
+        this.add("John", "Stockton", [Player.POSITION_POINT_GUARD], 93, "Utah Jazz '97-'98");
+    if (!this.onlySingleVersion)
+        this.add("Jeff", "Hornacek", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 82, "Utah Jazz '97-'98");
+    
+    if (!this.onlySingleVersion)
+        this.add("Michael", "Jordan", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 98, "Chicago Bulls '97-'98");
+    if (!this.onlySingleVersion)
+        this.add("Scottie", "Pippen", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 89, "Chicago Bulls '97-'98");
+    if (!this.onlySingleVersion)
+        this.add("Dennis", "Rodman", [Player.POSITION_POWER_FORWARD], 85, "Chicago Bulls '97-'98");
+    if (!this.onlySingleVersion)
+        this.add("Toni", "Kukoc", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 83, "Chicago Bulls '97-'98");
+    if (!this.onlySingleVersion)
+        this.add("Ron", "Harper", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 80, "Chicago Bulls '97-'98");
+    
+    if (!this.onlySingleVersion)
+        this.add("Alonzo", "Mourning", [Player.POSITION_CENTER, Player.POSITION_POWER_FORWARD], 93, "Miami Heat '96-'97");
+    if (!this.onlySingleVersion)
+        this.add("Tim", "Hardaway", [Player.POSITION_POINT_GUARD], 88, "Miami Heat '96-'97");
+    this.add("P.J.", "Brown", [Player.POSITION_CENTER], 84, "Miami Heat '96-'97");
+    
+    if (!this.onlySingleVersion)
+        this.add("Gary", "Payton", [Player.POSITION_POINT_GUARD], 94, "Seattle SuperSonics '95-'96");
+    if (!this.onlySingleVersion)
+        this.add("Shawn", "Kemp", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 89, "Seattle SuperSonics '95-'96");
+    if (!this.onlySingleVersion)
+        this.add("Detlef", "Schrempf", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 83, "Seattle SuperSonics '95-'96");
+    
+    if (!this.onlySingleVersion)
+        this.add("Michael", "Jordan", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 99, "Chicago Bulls '95-'96");
+    if (!this.onlySingleVersion)
+        this.add("Scottie", "Pippen", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 95, "Chicago Bulls '95-'96");
+    if (!this.onlySingleVersion)
+        this.add("Dennis", "Rodman", [Player.POSITION_POWER_FORWARD], 88, "Chicago Bulls '95-'96");
+    if (!this.onlySingleVersion)
+        this.add("Toni", "Kukoc", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 84, "Chicago Bulls '95-'96");
+    
+    if (!this.onlySingleVersion)
+        this.add("Shaquille", "O'Neal", [Player.POSITION_CENTER], 93, "Orlando Magic '94-'95");
+    if (!this.onlySingleVersion)
+        this.add("Penny", "Hardaway", [Player.POSITION_POINT_GUARD, Player.POSITION_SHOOTING_GUARD], 85, "Orlando Magic '94-'95");
+    if (!this.onlySingleVersion)
+        this.add("Nick", "Anderson", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 83, "Orlando Magic '94-'95");
+    if (!this.onlySingleVersion)
+        this.add("Horace", "Grant", [Player.POSITION_POWER_FORWARD], 82, "Orlando Magic '94-'95");
+    if (!this.onlySingleVersion)
+        this.add("Dennis", "Scott", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 81, "Orlando Magic '94-'95");
+    
+    if (!this.onlySingleVersion)
+        this.add("Patrick", "Ewing", [Player.POSITION_CENTER], 90, "New York Knicks '94-'95");
+    if (!this.onlySingleVersion)
+        this.add("John", "Starks", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 82, "New York Knicks '94-'95");
+    if (!this.onlySingleVersion)
+        this.add("Charles", "Oakley", [Player.POSITION_POWER_FORWARD], 81, "New York Knicks '94-'95");
+    
+    if (!this.onlySingleVersion)
+        this.add("Mahmoud", "Abdul-Rauf", [Player.POSITION_POINT_GUARD], 84, "Denver Nuggets '93-'94");
+    if (!this.onlySingleVersion)
+        this.add("Dikembe", "Mutombo", [Player.POSITION_CENTER], 84, "Denver Nuggets '93-'94");
+    if (!this.onlySingleVersion)
+        this.add("Laphonso", "Ellis", [Player.POSITION_POWER_FORWARD], 81, "Denver Nuggets '93-'94");
+    
+    if (!this.onlySingleVersion)
+        this.add("Hakeem", "Olajuwon", [Player.POSITION_CENTER], 97, "Houston Rockets '93-'94");
+    if (!this.onlySingleVersion)
+        this.add("Otis", "Thorpe", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 80, "Houston Rockets '93-'94");
+    
+    if (!this.onlySingleVersion)
+        this.add("Alonzo", "Mourning", [Player.POSITION_CENTER, Player.POSITION_POWER_FORWARD], 85, "Charlotte Hornets '92-'93");
+    if (!this.onlySingleVersion)
+        this.add("Larry", "Johnson", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 84, "Charlotte Hornets '92-'93");
+    if (!this.onlySingleVersion)
+        this.add("Muggsy", "Bogues", [Player.POSITION_POINT_GUARD], 81, "Charlotte Hornets '92-'93");
+    if (!this.onlySingleVersion)
+        this.add("Dell", "Curry", [Player.POSITION_SHOOTING_GUARD], 80, "Charlotte Hornets '92-'93");
+    
+    if (!this.onlySingleVersion)
+        this.add("Michael", "Jordan", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 99, "Chicago Bulls '92-'93");
+    if (!this.onlySingleVersion)
+        this.add("Scottie", "Pippen", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 93, "Chicago Bulls '92-'93");
+    if (!this.onlySingleVersion)
+        this.add("Horace", "Grant", [Player.POSITION_POWER_FORWARD], 82, "Chicago Bulls '92-'93");
+    
+    if (!this.onlySingleVersion)
+        this.add("Chris", "Mullin", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 89, "Golden State Warriors '90-'91");
+    if (!this.onlySingleVersion)
+        this.add("Tim", "Hardaway", [Player.POSITION_POINT_GUARD], 87, "Golden State Warriors '90-'91");
+    if (!this.onlySingleVersion)
+        this.add("Mitch", "Richmond", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 85, "Golden State Warriors '90-'91");
+    
+    if (!this.onlySingleVersion)
+        this.add("Clyde", "Drexler", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 92, "Portland Trail Blazers '90-'91");
+    if (!this.onlySingleVersion)
+        this.add("Terry", "Porter", [Player.POSITION_POINT_GUARD], 85, "Portland Trail Blazers '90-'91");
+    if (!this.onlySingleVersion)
+        this.add("Jerome", "Kersey", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 81, "Portland Trail Blazers '90-'91");
+    
+    if (!this.onlySingleVersion)
+        this.add("Magic", "Johnson", [Player.POSITION_POINT_GUARD, Player.POSITION_SHOOTING_GUARD], 92, "Los Angeles Lakers '90-'91");
+    if (!this.onlySingleVersion)
+        this.add("James", "Worthy", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 87, "Los Angeles Lakers '90-'91");
+    
+    if (!this.onlySingleVersion)
+        this.add("Michael", "Jordan", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 99, "Chicago Bulls '90-'91");
+    if (!this.onlySingleVersion)
+        this.add("Scottie", "Pippen", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 89, "Chicago Bulls '90-'91");
+    if (!this.onlySingleVersion)
+        this.add("Horace", "Grant", [Player.POSITION_POWER_FORWARD], 82, "Chicago Bulls '90-'91");
+    
+    if (!this.onlySingleVersion)
+        this.add("Mark", "Price", [Player.POSITION_POINT_GUARD], 89, "Cleveland Cavaliers '89-'90");
+    if (!this.onlySingleVersion)
+        this.add("Larry", "Nance", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 85, "Cleveland Cavaliers '89-'90");
+    if (!this.onlySingleVersion)
+        this.add("Brad", "Daugherty", [Player.POSITION_CENTER], 85, "Cleveland Cavaliers '89-'90");
+    if (!this.onlySingleVersion)
+        this.add("Hot Rod", "Williams", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 82, "Cleveland Cavaliers '89-'90");
+    
+    if (!this.onlySingleVersion)
+        this.add("Michael", "Jordan", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 97, "Chicago Bulls '88-'89");
+    if (!this.onlySingleVersion)
+        this.add("Scottie", "Pippen", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 82, "Chicago Bulls '88-'89");
+    if (!this.onlySingleVersion)
+        this.add("Horace", "Grant", [Player.POSITION_POWER_FORWARD], 81, "Chicago Bulls '88-'89");
+    
+    if (!this.onlySingleVersion)
+        this.add("Isiah", "Thomas", [Player.POSITION_POINT_GUARD], 92, "Detroit Pistons '88-'89");
+    if (!this.onlySingleVersion)
+        this.add("Joe", "Dumars", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 90, "Detroit Pistons '88-'89");
+    if (!this.onlySingleVersion)
+        this.add("Mark", "Aguirre", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 82, "Detroit Pistons '88-'89");
+    if (!this.onlySingleVersion)
+        this.add("Dennis", "Rodman", [Player.POSITION_POWER_FORWARD], 82, "Detroit Pistons '88-'89");
     this.add("Vinnie", "Johnson", [Player.POSITION_POINT_GUARD], 82, "Detroit Pistons '88-'89");
-    if (!this.onlySingleVersion) {
-        this.add("Vlade", "Divac", [Player.POSITION_CENTER], 87, "Sacramento Kings '01-'02");
-        this.add("Walt", "Frazier", [Player.POSITION_POINT_GUARD], 93, "New York Knicks '71-'72");
-        this.add("Willis", "Reed", [Player.POSITION_POWER_FORWARD], 84, "New York Knicks '71-'72");
-        this.add("Wilt", "Chamberlain", [Player.POSITION_CENTER], 93, "Los Angeles Lakers '70-'71");
+    if (!this.onlySingleVersion)
+        this.add("Bill", "Laimbeer", [Player.POSITION_CENTER], 80, "Detroit Pistons '88-'89");
+    
+    if (!this.onlySingleVersion)
+        this.add("Magic", "Johnson", [Player.POSITION_POINT_GUARD, Player.POSITION_SHOOTING_GUARD], 97, "Los Angeles Lakers '86-'87");
+    if (!this.onlySingleVersion)
+        this.add("Kareem", "Abdul-Jabbar", [Player.POSITION_CENTER], 94, "Los Angeles Lakers '86-'87");
+    if (!this.onlySingleVersion)
+        this.add("James", "Worthy", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 86, "Los Angeles Lakers '86-'87");
+    if (!this.onlySingleVersion)
+        this.add("Michael", "Cooper", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 85, "Los Angeles Lakers '86-'87");
+    if (!this.onlySingleVersion)
+        this.add("Byron", "Scott", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 84, "Los Angeles Lakers '86-'87");
+    this.add("A.C.", "Green", [Player.POSITION_POWER_FORWARD], 82, "Los Angeles Lakers '86-'87");
+    
+    if (!this.onlySingleVersion)
+        this.add("Dominique", "Wilkins", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 92, "Atlanta Hawks '85-'86");
+    if (!this.onlySingleVersion)
+        this.add("Doc", "Rivers", [Player.POSITION_POINT_GUARD], 83, "Atlanta Hawks '85-'86");
+    
+    if (!this.onlySingleVersion)
+        this.add("Larry", "Bird", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 97, "Boston Celtics '85-'86");
+    if (!this.onlySingleVersion)
+        this.add("Kevin", "McHale", [Player.POSITION_POWER_FORWARD], 91, "Boston Celtics '85-'86");
+    if (!this.onlySingleVersion)
+        this.add("Robert", "Parish", [Player.POSITION_CENTER], 86, "Boston Celtics '85-'86");
+    if (!this.onlySingleVersion)
+        this.add("Dennis", "Johnson", [Player.POSITION_POINT_GUARD, Player.POSITION_SHOOTING_GUARD], 84, "Boston Celtics '85-'86");
+    if (!this.onlySingleVersion)
+        this.add("Bill", "Walton", [Player.POSITION_CENTER], 82, "Boston Celtics '85-'86");
+    
+    if (!this.onlySingleVersion)
+        this.add("Michael", "Jordan", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 91, "Chicago Bulls '85-'86");
+    if (!this.onlySingleVersion)
+        this.add("George", "Gervin", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 82, "Chicago Bulls '85-'86");
+    if (!this.onlySingleVersion)
+        this.add("Charles", "Oakley", [Player.POSITION_POWER_FORWARD], 82, "Chicago Bulls '85-'86");
+    
+    if (!this.onlySingleVersion)
+        this.add("Sidney", "Moncrief", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 91, "Milwaukee Bucks '84-'85");
+    this.add("Terry", "Cummings", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 88, "Milwaukee Bucks '84-'85");
+    this.add("Paul", "Pressey", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 86, "Milwaukee Bucks '84-'85");
+    
+    if (!this.onlySingleVersion)
+        this.add("Julius", "Erving", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 95, "Philadelphia 76ers '76-'77");
+    if (!this.onlySingleVersion)
+        this.add("George", "McGinnis", [Player.POSITION_POWER_FORWARD], 86, "Philadelphia 76ers '76-'77");
+    if (!this.onlySingleVersion)
+        this.add("Doug", "Collins", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 85, "Philadelphia 76ers '76-'77");
+    this.add("Henry", "Bibby", [Player.POSITION_POINT_GUARD], 81, "Philadelphia 76ers '76-'77");
+    if (!this.onlySingleVersion)
         this.add("World B.", "Free", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 80, "Philadelphia 76ers '76-'77");
-        this.add("Yao", "Ming", [Player.POSITION_CENTER], 89, "Houston Rockets '07-'08");
-        this.add("Zydrunas", "Ilgauskas", [Player.POSITION_CENTER], 83, "Cleveland Cavaliers '06-'07");
-    }
-    */
+    
+    if (!this.onlySingleVersion)
+        this.add("Walt", "Frazier", [Player.POSITION_POINT_GUARD], 93, "New York Knicks '71-'72");
+    if (!this.onlySingleVersion)
+        this.add("Jerry", "Lucas", [Player.POSITION_POWER_FORWARD], 86, "New York Knicks '71-'72");
+    if (!this.onlySingleVersion)
+        this.add("Dave", "DeBusschere", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 83, "New York Knicks '71-'72");
+    if (!this.onlySingleVersion)
+        this.add("Willis", "Reed", [Player.POSITION_POWER_FORWARD], 83, "New York Knicks '71-'72");
+    this.add("Bill", "Bradley", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 80, "New York Knicks '71-'72");
+    
+    if (!this.onlySingleVersion)
+        this.add("Jerry", "West", [Player.POSITION_POINT_GUARD], 95, "Los Angeles Lakers '70-'71");
+    if (!this.onlySingleVersion)
+        this.add("Wilt", "Chamberlain", [Player.POSITION_CENTER], 93, "Los Angeles Lakers '70-'71");
+    if (!this.onlySingleVersion)
+        this.add("Gail", "Goodrich", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_POINT_GUARD], 83, "Los Angeles Lakers '70-'71");
+
+    if (!this.onlySingleVersion)
+        this.add("Kareem", "Abdul-Jabbar", [Player.POSITION_CENTER], 98, "Milwaukee Bucks '70-'71");
+    if (!this.onlySingleVersion)
+        this.add("Oscar", "Robertson", [Player.POSITION_POINT_GUARD], 93, "Milwaukee Bucks '70-'71");
+    if (!this.onlySingleVersion)
+        this.add("Bob", "Dandridge", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 85, "Milwaukee Bucks '70-'71");
+    
+    if (!this.onlySingleVersion)
+        this.add("Jerry", "West", [Player.POSITION_POINT_GUARD], 94, "Los Angeles Lakers '64-'65");
+    if (!this.onlySingleVersion)
+        this.add("Elgin", "Baylor", [Player.POSITION_SMALL_FORWARD, Player.POSITION_POWER_FORWARD], 92, "Los Angeles Lakers '64-'65");
+    if (!this.onlySingleVersion)
+        this.add("Rudy", "Larusso", [Player.POSITION_POWER_FORWARD], 82, "Los Angeles Lakers '64-'65");
+    
+    if (!this.onlySingleVersion)
+        this.add("Bill", "Russell", [Player.POSITION_POWER_FORWARD, Player.POSITION_CENTER], 98, "Boston Celtics '64-'65");
+    this.add("Sam", "Jones", [Player.POSITION_SHOOTING_GUARD, Player.POSITION_SMALL_FORWARD], 88, "Boston Celtics '64-'65");
+    this.add("K.C.", "Jones", [Player.POSITION_POINT_GUARD], 85, "Boston Celtics '64-'65");
+    this.add("Tom", "Sanders", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 85, "Boston Celtics '64-'65");    
+    if (!this.onlySingleVersion)
+        this.add("John", "Havlicek", [Player.POSITION_SMALL_FORWARD, Player.POSITION_SHOOTING_GUARD], 84, "Boston Celtics '64-'65");
+    if (!this.onlySingleVersion)
+        this.add("Tom", "Heinsohn", [Player.POSITION_POWER_FORWARD, Player.POSITION_SMALL_FORWARD], 81, "Boston Celtics '64-'65");
 }
 
 PlayerCollection.prototype.populateCurrent = function() {

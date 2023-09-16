@@ -26,10 +26,8 @@ const SpacedButton = styled.button`
 
 const playerCollection = new PlayerCollection();
 
-export default function Draft({overallSets, positionSets, randomWeightValue}) {
+export default function Draft({overallSets, positionSets, playerVersions, randomWeightValue}) {
     const saveNameInputRef = useRef();
-
-    playerCollection.setRandomWeightValue(randomWeightValue);
 
     const [playerGroups, setPlayerGroups] = useState([]);
 
@@ -42,6 +40,11 @@ export default function Draft({overallSets, positionSets, randomWeightValue}) {
     const [draftSaveName, setDraftSaveName] = useState("");
 
     const [isDraftComplete, setDraftComplete] = useState(false);
+
+    useEffect(() => {
+        playerCollection.setPlayerVersions(playerVersions);
+        playerCollection.setRandomWeightValue(randomWeightValue);
+    }, [])
 
     useEffect(() => {
         for (let selectedPositionGroup of selectedPositionGroups) {
