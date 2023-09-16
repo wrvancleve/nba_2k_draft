@@ -4,8 +4,6 @@ import OverallGroupList from './OverallGroupList'
 import { v4 as uuidv4 } from 'uuid'
 import styled from 'styled-components'
 
-import { useNavigate } from 'react-router-dom'
-
 const POSITION_GROUPS_LOCAL_STORAGE_KEY = "nba_draft.positionGroups"
 const OVERALL_GROUPS_LOCAL_STORAGE_KEY = "nba_draft.overallGroups"
 const RANDOM_WEIGHT_LOCAL_STORAGE_KEY = "nba_draft.randomWeight"
@@ -16,9 +14,8 @@ const StyledDiv = styled.div`
     flex-direction: column;
 `
 
-export default function Setup() {
-    const navigate = useNavigate();
-
+export default function Setup({startDraft}) {
+    const [isInitialLoad, setIsInitialLoad] = useState(true);
     const [positionGroups, setPositionGroups] = useState([])
     const [overallGroups, setOverallGroups] = useState([])
     const [randomWeightValue, setRandomWeightValue] = useState(1);
@@ -36,12 +33,15 @@ export default function Setup() {
         }
         const storedRandomWeightValue = JSON.parse(localStorage.getItem(RANDOM_WEIGHT_LOCAL_STORAGE_KEY)) || 1;
         setRandomWeightValue(storedRandomWeightValue);
+        setIsInitialLoad(false);
     }, [])
 
     useEffect(() => {
-        localStorage.setItem(POSITION_GROUPS_LOCAL_STORAGE_KEY, JSON.stringify(positionGroups))
-        localStorage.setItem(OVERALL_GROUPS_LOCAL_STORAGE_KEY, JSON.stringify(overallGroups))
-        localStorage.setItem(RANDOM_WEIGHT_LOCAL_STORAGE_KEY, JSON.stringify(randomWeightValue))
+        if (!isInitialLoad) {
+            localStorage.setItem(POSITION_GROUPS_LOCAL_STORAGE_KEY, JSON.stringify(positionGroups))
+            localStorage.setItem(OVERALL_GROUPS_LOCAL_STORAGE_KEY, JSON.stringify(overallGroups))
+            localStorage.setItem(RANDOM_WEIGHT_LOCAL_STORAGE_KEY, JSON.stringify(randomWeightValue))
+        }
     }, [positionGroups, overallGroups, randomWeightValue]);
 
     function createNewPositionGroup() {
@@ -125,7 +125,7 @@ export default function Setup() {
             positionSets.push(positionSet);
         });
         
-        navigate("/draft", { state: { overallSets: overallSets, positionSets: positionSets, randomWeightValue: randomWeightValue } });
+        startDraft(overallSets, positionSets, randomWeightValue);
     }
 
     function handleRandomWeightChange(event) {

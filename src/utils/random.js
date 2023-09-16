@@ -1,4 +1,4 @@
-module.exports.shuffle = (array) => {
+export function shuffle(array) {
     let shuffled = array.slice(0), i = array.length, temp, index;
     while (i--) {
         index = Math.floor((i + 1) * Math.random());
@@ -9,7 +9,7 @@ module.exports.shuffle = (array) => {
     return shuffled.slice(0);
 }
 
-module.exports.sample = (array, size) => {
+export function sample(array, size) {
     let shuffled = array.slice(0), i = array.length, temp, index;
     while (i--) {
         index = Math.floor((i + 1) * Math.random());
@@ -20,6 +20,6 @@ module.exports.sample = (array, size) => {
     return shuffled.slice(0, size);
 }
 
-module.exports.choice = (array) => {
+export function choice(array) {
     return array[Math.floor(Math.random() * array.length)];
 }

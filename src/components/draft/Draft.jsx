@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { useLocation } from "react-router-dom";
 import styled from 'styled-components'
 
 import DraftBoard from './DraftBoard'
@@ -27,14 +26,8 @@ const SpacedButton = styled.button`
 
 const playerCollection = new PlayerCollection();
 
-export default function Draft() {
-    let location = useLocation();
-
+export default function Draft({overallSets, positionSets, randomWeightValue}) {
     const saveNameInputRef = useRef();
-
-    const overallSets = location.state.overallSets;
-    const positionSets = location.state.positionSets;
-    const randomWeightValue = location.state.randomWeightValue;
 
     playerCollection.setRandomWeightValue(randomWeightValue);
 
