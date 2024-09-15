@@ -1,6 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react'
 import styled from 'styled-components'
 
+import Button from '@mui/material/Button';
+import RefreshIcon from '@mui/icons-material/Refresh';
+
 import DraftBoard from './DraftBoard'
 import SavedDraftList from './SavedDraftList';
 
@@ -26,7 +29,7 @@ const SpacedButton = styled.button`
 
 const playerCollection = new PlayerCollection();
 
-export default function Draft({overallSets, positionSets, playerVersions, randomWeightValue}) {
+export default function Draft({overallSets, positionSets, useAllPlayerVersions, randomWeightValue, rerollsAllowed}) {
     const saveNameInputRef = useRef();
 
     const [playerGroups, setPlayerGroups] = useState([]);
@@ -35,6 +38,7 @@ export default function Draft({overallSets, positionSets, playerVersions, random
     const [selectedPositionGroups, setSelectedPositionGroups] = useState(new Array(overallSets.length).fill(null));
 
     const [isSelectingTeam, setIsSelectingTeam] = useState(false);
+    const [rerollsLeft, setRerollsLeft] = useState(rerollsAllowed);
 
     const [isDraftSaveDisabled, setDraftSaveDisabled] = useState(true);
     const [draftSaveName, setDraftSaveName] = useState("");
@@ -42,7 +46,7 @@ export default function Draft({overallSets, positionSets, playerVersions, random
     const [isDraftComplete, setDraftComplete] = useState(false);
 
     useEffect(() => {
-        playerCollection.setPlayerVersions(playerVersions);
+        playerCollection.setUseAllPlayerVersions(useAllPlayerVersions);
         playerCollection.setRandomWeightValue(randomWeightValue);
     }, [])
 
@@ -103,7 +107,7 @@ export default function Draft({overallSets, positionSets, playerVersions, random
         selectedPositionGroups.forEach((positionGroupId, overallGroupId) => {
             const selectedPlayer = playerGroups[overallGroupId][positionGroupId];
             selectedPlayers.push(selectedPlayer);
-            playerCollection.remove(selectedPlayer);
+            playerCollection.removePlayer(selectedPlayer);
         });
 
         const newSavedDraft = {name: draftSaveName, players: selectedPlayers};
@@ -117,6 +121,7 @@ export default function Draft({overallSets, positionSets, playerVersions, random
 
     function handleStartTeamClick() {
         setIsSelectingTeam(true);
+        setRerollsLeft(rerollsAllowed);
         populateDraftBoard();
     }
 
@@ -135,6 +140,11 @@ export default function Draft({overallSets, positionSets, playerVersions, random
         setPlayerGroups(playerCollection.getRandomByTiers(overallSets, positionSets));
     }
 
+    function handleRerollBoard() {
+        populateDraftBoard();
+        setRerollsLeft(rerollsLeft - 1);
+    }
+
     return (
         <FlexColumnDiv>
             {isDraftComplete
@@ -150,6 +160,18 @@ export default function Draft({overallSets, positionSets, playerVersions, random
                         ?
                             <>
                                 <DraftBoard overallGroups={playerGroups} handleTogglePlayer={handleTogglePlayer} />
+                                <FlexRowDiv>
+                                    {rerollsLeft > 0
+                                        ?
+                                            <Button variant="contained" color="success" startIcon={<RefreshIcon />} onClick={handleRerollBoard}>
+                                            {rerollsLeft} Reroll(s) left
+                                            </Button>
+                                        :
+                                            <Button variant="contained" disabled color="primary" startIcon={<RefreshIcon />}>
+                                            {rerollsLeft} Reroll(s) left
+                                            </Button>
+                                    }
+                                </FlexRowDiv>
                                 <FlexRowDiv>
                                     <div>
                                         <label for="selection-name">Name:</label>

@@ -38,6 +38,10 @@ button {
   cursor: pointer;
 }
 
+button.Mui-disabled {
+  color: hsla(0,0%,100%,.87) !important;
+}
+
 label {
   color: hsla(0,0%,100%,.87);
 }

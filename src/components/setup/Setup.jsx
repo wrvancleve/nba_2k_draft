@@ -4,38 +4,36 @@ import OverallGroupList from './OverallGroupList'
 import { v4 as uuidv4 } from 'uuid'
 import styled from 'styled-components'
 
-import ButtonSelectionGroup from '../ButtonSelectionGroup'
-
-const ButtonSelectionDiv = styled.div`
-    padding: 5px;
-`
-
-const ButtonSelectionLabel = styled.label`
-    padding-right: 12px;
-    padding-left: 12px;
-`
+import Checkbox from '@mui/material/Checkbox';
 
 const POSITION_GROUPS_LOCAL_STORAGE_KEY = "nba_draft.positionGroups"
 const OVERALL_GROUPS_LOCAL_STORAGE_KEY = "nba_draft.overallGroups"
-const PLAYER_VERSIONS_LOCAL_STORAGE_KEY = "nba_draft.playerVersions"
+const USE_ALL_PLAYER_VERSIONS_STORAGE_KEY = "nba_draft.useAllPlayerVersions"
+const REROLLS_ALLOWED_STORAGE_KEY = "nba_draft.rerollsAllowed"
 const RANDOM_WEIGHT_LOCAL_STORAGE_KEY = "nba_draft.randomWeight"
 
-const StyledDiv = styled.div`
+const ColumnDiv = styled.div`
     padding: 5px;
     display: flex;
     flex-direction: column;
+`
+const RowDiv = styled.div`
+    margin: 5px;
+`
+const StartButton = styled.button`
+    margin: 5px;
 `
 
 export default function Setup({startDraft}) {
     const [isInitialLoad, setIsInitialLoad] = useState(true);
     const [positionGroups, setPositionGroups] = useState([])
     const [overallGroups, setOverallGroups] = useState([])
-    const [selectedPlayerVersionIndex, setSelectedPlayerVersionIndex] = useState(1);
+    const [useAllPlayerVersions, setUseAllPlayerVersions] = useState(true);
+    const [rerollsAllowed, setRerollsAllowed] = useState(0);
     const [randomWeightValue, setRandomWeightValue] = useState(1);
 
+    const rerollsAllowedRef = useRef();
     const randomWeightRef = useRef();
-
-    const possiblePlayerVersions = ["All", "Best"];
 
     useEffect(() => {
         const storedPositionGroups = JSON.parse(localStorage.getItem(POSITION_GROUPS_LOCAL_STORAGE_KEY))
@@ -46,10 +44,10 @@ export default function Setup({startDraft}) {
         if (storedOverallGroups) {
             setOverallGroups(storedOverallGroups);
         }
-        const storedPlayerVersions = JSON.parse(localStorage.getItem(PLAYER_VERSIONS_LOCAL_STORAGE_KEY));
-        if (storedPlayerVersions) {
-            setSelectedPlayerVersionIndex(possiblePlayerVersions.indexOf(storedPlayerVersions));
-        }
+        const storedUseAllPlayerVersions = JSON.parse(localStorage.getItem(USE_ALL_PLAYER_VERSIONS_STORAGE_KEY));
+        setUseAllPlayerVersions(storedUseAllPlayerVersions);
+        const storedRerollsAllowed = JSON.parse(localStorage.getItem(REROLLS_ALLOWED_STORAGE_KEY)) || 0;
+        setRerollsAllowed(storedRerollsAllowed);
         const storedRandomWeightValue = JSON.parse(localStorage.getItem(RANDOM_WEIGHT_LOCAL_STORAGE_KEY)) || 1;
         setRandomWeightValue(storedRandomWeightValue);
         setIsInitialLoad(false);
@@ -59,10 +57,11 @@ export default function Setup({startDraft}) {
         if (!isInitialLoad) {
             localStorage.setItem(POSITION_GROUPS_LOCAL_STORAGE_KEY, JSON.stringify(positionGroups))
             localStorage.setItem(OVERALL_GROUPS_LOCAL_STORAGE_KEY, JSON.stringify(overallGroups))
-            localStorage.setItem(PLAYER_VERSIONS_LOCAL_STORAGE_KEY, JSON.stringify(possiblePlayerVersions[selectedPlayerVersionIndex]))
+            localStorage.setItem(USE_ALL_PLAYER_VERSIONS_STORAGE_KEY, JSON.stringify(useAllPlayerVersions))
+            localStorage.setItem(REROLLS_ALLOWED_STORAGE_KEY, JSON.stringify(rerollsAllowed))
             localStorage.setItem(RANDOM_WEIGHT_LOCAL_STORAGE_KEY, JSON.stringify(randomWeightValue))
         }
-    }, [positionGroups, overallGroups, randomWeightValue, selectedPlayerVersionIndex]);
+    }, [positionGroups, overallGroups, randomWeightValue, useAllPlayerVersions, rerollsAllowed]);
 
     function createNewPositionGroup() {
         const positionPointGuard = {id: uuidv4(), name: "PG", selected: false};
@@ -145,17 +144,25 @@ export default function Setup({startDraft}) {
             positionSets.push(positionSet);
         });
         
-        startDraft(overallSets, positionSets, possiblePlayerVersions[selectedPlayerVersionIndex], randomWeightValue);
+        startDraft(overallSets, positionSets, useAllPlayerVersions, randomWeightValue, rerollsAllowed);
     }
 
     function handleRandomWeightChange(event) {
         setRandomWeightValue(Number(randomWeightRef.current.value));
     }
 
+    function handleToggleUseAllPlayerVersions(event) {
+        setUseAllPlayerVersions(event.target.checked);
+    }
+
+    function handleRerollsAllowedChange(event) {
+        setRerollsAllowed(Number(rerollsAllowedRef.current.value))
+    }
+
     return (
         <div className="center-flex-column">
-            <StyledDiv>
-                <StyledDiv>
+            <ColumnDiv>
+                <ColumnDiv>
                     <fieldset className="center-flex-column">
                         <legend>
                             <button onClick={handleAddPositionGroup}>+</button>
@@ -164,8 +171,8 @@ export default function Setup({startDraft}) {
                         </legend>
                         <PositionGroupList groups={positionGroups} togglePosition={togglePosition} />
                     </fieldset>
-                </StyledDiv>
-                <StyledDiv>
+                </ColumnDiv>
+                <ColumnDiv>
                     <fieldset className="center-flex-column">
                         <legend>
                             <button onClick={handleAddOverallGroup}>+</button>
@@ -174,17 +181,21 @@ export default function Setup({startDraft}) {
                         </legend>
                         <OverallGroupList overalls={overallGroups} setOverallValue={setOverallValue} />
                     </fieldset>
-                </StyledDiv>
-            </StyledDiv>
-            <ButtonSelectionDiv>
-                <ButtonSelectionLabel>Player Versions:</ButtonSelectionLabel>
-                <ButtonSelectionGroup label="Player Versions" possibleValues={possiblePlayerVersions} selectedIndex={selectedPlayerVersionIndex} onChange={setSelectedPlayerVersionIndex} />
-            </ButtonSelectionDiv>
-            <StyledDiv>
+                </ColumnDiv>
+            </ColumnDiv>
+            <RowDiv>
+                <label>Use All Player Versions:</label>
+                <Checkbox checked={useAllPlayerVersions} onChange={handleToggleUseAllPlayerVersions}/>
+            </RowDiv>
+            <RowDiv>
+                <label for={"rerolls-allowed"}>Rerolls Allowed:</label>
+                <input ref={rerollsAllowedRef} onChange={handleRerollsAllowedChange} type="number" id={"rerolls-allowed"} min="0" max="10" value={rerollsAllowed}/>
+            </RowDiv>
+            <RowDiv>
                 <label for={"random-weight-value"}>Random Weight Value:</label>
                 <input ref={randomWeightRef} onChange={handleRandomWeightChange} type="number" id={"random-weight-value"} min="1" max="50" value={randomWeightValue}/>
-            </StyledDiv>
-            <button onClick={handleStartDraftClick}>Start Draft</button>
+            </RowDiv>
+            <StartButton onClick={handleStartDraftClick}>Start Draft</StartButton>
         </div>
     )
 }

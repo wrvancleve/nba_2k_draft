@@ -24,14 +24,17 @@ function App() {
   
   let [overallSets, setOverallSets] = useState(null);
   let [positionSets, setPositionSets] = useState(null);
-  let [playerVersions, setPlayerVersions] = useState(null);
+  let [useAllPlayerVersions, setUseAllPlayerVersions] = useState(null);
   let [randomWeightValue, setRandomWeightValue] = useState(null);
+  let [rerollsAllowed, setRerollsAllowed] = useState(null);
+  
 
-  function startDraft(newOverallSets, newPositionSets, newPlayerVersions, newRandomWeightValue) {
+  function startDraft(newOverallSets, newPositionSets, newUseAllPlayerVersions, newRandomWeightValue, newRerollsAllowed) {
     setOverallSets(newOverallSets);
     setPositionSets(newPositionSets);
-    setPlayerVersions(newPlayerVersions);
+    setUseAllPlayerVersions(newUseAllPlayerVersions);
     setRandomWeightValue(newRandomWeightValue);
+    setRerollsAllowed(newRerollsAllowed);
     setIsDrafting(true);
   }
 
@@ -72,7 +75,7 @@ function App() {
       <div className='bg'></div>
       {
         isDrafting 
-          ? <Draft overallSets={overallSets} positionSets={positionSets} playerVersions={playerVersions} randomWeightValue={randomWeightValue} />
+          ? <Draft overallSets={overallSets} positionSets={positionSets} useAllPlayerVersions={useAllPlayerVersions} randomWeightValue={randomWeightValue} rerollsAllowed={rerollsAllowed} />
           : <Setup startDraft={startDraft} />
       }
     </>
